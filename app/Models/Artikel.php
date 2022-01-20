@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Artikel extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     public $incrementing = false;
     protected $fillable = [
-    'id',
-    "nama_artikel",
-    "slug",
-    "isi_artikel",
-    "gambar",
-    "kategori_artikel_id",
-    "tanggal_publish",
-    "publish",
-    "penulis",
-    "status",
+        'id',
+        "nama_artikel",
+        "slug",
+        "isi_artikel",
+        "gambar",
+        "kategori_artikel_id",
+        "tanggal_publish",
+        "publish",
+        "penulis",
+        "status",
     ];
 }
