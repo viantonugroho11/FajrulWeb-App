@@ -20,11 +20,11 @@ class CreateArtikelsTable extends Migration
             $table->longtext("isi_artikel");
             $table->string("gambar");
             $table->string("kategori_artikel_id");
-            $table->string("tanggal_publish")->nullable();
+            $table->date("tanggal_publish")->nullable();
             $table->string("publish")->nullable();
             // $table->string("editor");
             $table->string("penulis");
-            $table->string("status");
+            $table->integer("status")->default(0);
             // $table->string("")
             $table->timestamps();
             $table->softDeletes();
