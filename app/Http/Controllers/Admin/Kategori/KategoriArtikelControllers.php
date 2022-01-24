@@ -14,7 +14,7 @@ class KategoriArtikelControllers extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.kategori.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class KategoriArtikelControllers extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.create');
     }
 
     /**
