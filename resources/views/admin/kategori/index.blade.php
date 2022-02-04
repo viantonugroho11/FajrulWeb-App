@@ -42,12 +42,9 @@
                   <thead>
                     <tr>
                       {{-- <th>No</th> --}}
-                      <th>Nama Pura</th>
-                      <th>Jenis Pura</th>
-                      <th>Kondisi</th>
-                      <th>Status Tanah</th>
-                      <th>Provinsi</th>
-                      <th>Kab/Kota</th>
+                      <th>Nama</th>
+                      <th>Slug</th>
+                      <th>Icon</th>
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
@@ -140,28 +137,16 @@
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama_pura',
-            name: 'nama_pura'
+            data: 'nama',
+            name: 'nama'
           },
           {
-            data: 'jenis_nama',
-            name: 'jenis_nama'
+            data: 'slug',
+            name: 'slug'
           },
           {
-            data: 'kondisi_nama',
-            name: 'kondisi_nama'
-          },
-          {
-            data: 'status_tanah_nama',
-            name: 'status_tanah_nama'
-          },
-          {
-            data: 'provinsi_nama',
-            name: 'provinsi_nama'
-          },
-          {
-            data: 'kota_nama',
-            name: 'kota_nama'
+            data: 'icon',
+            name: 'icon'
           },
           {
             data: 'action',

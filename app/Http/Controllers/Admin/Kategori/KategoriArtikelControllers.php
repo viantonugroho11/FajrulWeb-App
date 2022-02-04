@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin\Kategori;
 
 use App\Http\Controllers\Controller;
+use App\Models\KategoriArtikel;
 use Illuminate\Http\Request;
-
+//str
+use Illuminate\Support\Str;
 class KategoriArtikelControllers extends Controller
 {
     /**
@@ -35,7 +37,30 @@ class KategoriArtikelControllers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama'=>'required'
+        ]);
+        $kategori = KategoriArtikel::create([
+            'nama'=>$request->nama,
+            'slug'=>Str::slug($request->nama),
+            'icon'=>'null',
+        ]);
+
+        if($request->file('icon')!=null){
+            //simpan icon storage
+            $image = $request->file('icon');
+            $image->storeAs('public/kategori-artikel/', $image->hashName());
+            //simpan icon database
+            $kategori->update([
+                'icon'=>$image->hashName()
+            ]);
+        }
+        if ($kategori) {
+            return redirect()->route('admin.kategori-artikel.index')->with('success','Data berhasil ditambahkan');
+        }else{
+            return redirect()->route('admin.kategori-artikel.index')->with('error','Data gagal ditambahkan');
+        }
+
     }
 
     /**
