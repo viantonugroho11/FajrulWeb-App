@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/dashboard',[App\Http\Controllers\Admin\Dashboard\DashboardControllers::class,'index'])->name('admin.dashboard');
 Route::resource('/kategori-artikel', App\Http\Controllers\Admin\Kategori\KategoriArtikelControllers::class);
+Route::resource('/artikel', App\Http\Controllers\Admin\Artikel\ArtikelControllers::class);

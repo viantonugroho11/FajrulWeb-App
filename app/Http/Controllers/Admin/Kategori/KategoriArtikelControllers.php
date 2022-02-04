@@ -7,6 +7,8 @@ use App\Models\KategoriArtikel;
 use Illuminate\Http\Request;
 //str
 use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
+
 class KategoriArtikelControllers extends Controller
 {
     /**
@@ -41,7 +43,8 @@ class KategoriArtikelControllers extends Controller
             'nama'=>'required'
         ]);
         $kategori = KategoriArtikel::create([
-            'nama'=>$request->nama,
+            'id'=>Uuid::uuid4()->toString(),
+            'nama_kategori'=>$request->nama,
             'slug'=>Str::slug($request->nama),
             'icon'=>'null',
         ]);
@@ -82,7 +85,8 @@ class KategoriArtikelControllers extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = KategoriArtikel::findorfail($id);
+        return view('admin.kategori.edit',compact('kategori'));
     }
 
     /**
@@ -94,7 +98,34 @@ class KategoriArtikelControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori=KategoriArtikel::find($id);
+        $this->validate($request, [
+            'nama' => 'required'
+        ]);
+        // $kategori = KategoriArtikel::create([
+        //     'nama' => $request->nama,
+        //     'slug' => Str::slug($request->nama),
+        //     'icon' => 'null',
+        // ]);
+
+        $kategori->update([
+            'nama_kategori'=>$request->nama,
+        ]);
+
+        if ($request->file('icon') != null) {
+            //simpan icon storage
+            $image = $request->file('icon');
+            $image->storeAs('public/kategori-artikel/', $image->hashName());
+            //simpan icon database
+            $kategori->update([
+                'icon' => $image->hashName()
+            ]);
+        }
+        if ($kategori) {
+            return redirect()->route('kategori-artikel.index')->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect()->route('kategori-artikel.index')->with('error', 'Data gagal ditambahkan');
+        }
     }
 
     /**
@@ -105,6 +136,8 @@ class KategoriArtikelControllers extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategori = KategoriArtikel::find($id);
+        $kategori->delete();
+        return redirect()->route('kategori-artikel.index')->with('success', 'Data berhasil dihapus');
     }
 }

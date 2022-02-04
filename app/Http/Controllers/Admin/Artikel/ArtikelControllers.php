@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Artikel;
 
 use App\Http\Controllers\Controller;
+use App\Models\KategoriArtikel;
 use Illuminate\Http\Request;
 
 class ArtikelControllers extends Controller
@@ -14,7 +15,7 @@ class ArtikelControllers extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.artikel.index');
     }
 
     /**
@@ -24,7 +25,8 @@ class ArtikelControllers extends Controller
      */
     public function create()
     {
-        //
+        $kategori = KategoriArtikel::all();
+        return view('admin.artikel.create',compact('kategori'));
     }
 
     /**

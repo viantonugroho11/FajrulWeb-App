@@ -10,5 +10,5 @@ class KategoriArtikel extends Model
 {
     use HasFactory, SoftDeletes;
     public $incrementing = false;
-    protected $fillable = ['id', 'nama_kategori', 'slug'];
+    protected $fillable = ['id', 'nama_kategori', 'slug','icon'];
 }
