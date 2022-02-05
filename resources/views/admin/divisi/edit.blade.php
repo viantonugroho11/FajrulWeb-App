@@ -35,8 +35,14 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama</label>
-                    <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                    value="{{old('nama',$kategori->nama)}}" placeholder="Enter email">
+                    <input name="nama" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Regional</label>
+                    <select name="kategori" class="form-control">
+                      <option value="">Pilih Regional</option>
+                      <option value="1">Depok - Kalimalang</option>
+                      <option value="2">Karawaci</option>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Icon</label>
