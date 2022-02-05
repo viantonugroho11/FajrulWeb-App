@@ -72,6 +72,7 @@
                         <select class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             <option selected="selected" value="0">Pending</option>
+                            <option value="2">Simpan</option>
                             <option value="1" disabled>Publish</option>
                             {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
