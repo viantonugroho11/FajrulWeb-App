@@ -25,3 +25,6 @@ Route::get('/dashboard',[App\Http\Controllers\Admin\Dashboard\DashboardControlle
 Route::resource('/kategori-artikel', App\Http\Controllers\Admin\Kategori\KategoriArtikelControllers::class);
 Route::resource('/artikel', App\Http\Controllers\Admin\Artikel\ArtikelControllers::class);
 Route::resource('/acara', App\Http\Controllers\Admin\Acara\AcaraControllers::class);
+// Route::resource('/kategori-acara', App\Http\Controllers\Admin\Kategori\KategoriAcaraControllers::class);
+Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
+Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);

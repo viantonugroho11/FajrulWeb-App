@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Proker;
+namespace App\Http\Controllers\Admin\Divisi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProkerController extends Controller
+class DivisiControllers extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProkerController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.divisi.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.divisi.create');
     }
 
     /**
