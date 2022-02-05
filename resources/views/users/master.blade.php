@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/styles.min.css')}}">
 </head>
 
-<body style="background: url('/assets/img/bg-aurora-full.png');background-size: cover;font-family: Poppins, sans-serif;">
+<body style="background: url('{{asset('assets/frontend/img/bg-aurora-full.png')}}');background-size: cover;font-family: Poppins, sans-serif;">
     <div class="container" style="width: 1200px;margin-bottom: 9rem;">
         <!-- Start: Navigation Clean -->
         @include('users.tools.navbar')
