@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Acara;
+namespace App\Http\Controllers\Admin\Proker;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AcaraControllers extends Controller
+class ProkerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AcaraControllers extends Controller
      */
     public function index()
     {
-        return view('admin.acara.index');
+        //
     }
 
     /**
