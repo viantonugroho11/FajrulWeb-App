@@ -31,12 +31,14 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('kategori-artikel.update',$kategori->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama</label>
                     <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                    value="{{old('nama',$kategori->nama)}}" placeholder="Enter email">
+                    value="{{old('nama',$kategori->nama_kategori)}}" placeholder="Enter email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Icon</label>

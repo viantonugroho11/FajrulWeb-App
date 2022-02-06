@@ -47,7 +47,7 @@
                         <select class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                                <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
                             @endforeach
                         </select>
                       </div>

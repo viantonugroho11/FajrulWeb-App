@@ -31,11 +31,12 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('kategori-artikel.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama</label>
-                    <input name="nama" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input name="nama" type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Kategori">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Icon</label>

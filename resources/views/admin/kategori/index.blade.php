@@ -44,7 +44,7 @@
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
                       <th>Slug</th>
-                      <th>Icon</th>
+                      {{-- <th>Icon</th> --}}
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
@@ -137,17 +137,17 @@
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama',
-            name: 'nama'
+            data: 'nama_kategori',
+            name: 'nama_kategori'
           },
           {
             data: 'slug',
             name: 'slug'
           },
-          {
-            data: 'icon',
-            name: 'icon'
-          },
+        //   {
+        //     data: 'icon',
+        //     name: 'icon'
+        //   },
           {
             data: 'action',
             name: 'action',

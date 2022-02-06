@@ -17,6 +17,7 @@ class CreateKategoriArtikelsTable extends Migration
             $table->uuid('id')->primary();
             $table->string("nama_kategori");
             $table->string("slug");
+            $table->string('icon');
             $table->timestamps();
             $table->softDeletes();
         });
