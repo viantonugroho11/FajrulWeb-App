@@ -8,6 +8,7 @@ use App\Models\KategoriArtikel;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class ArtikelControllers extends Controller
 {
@@ -16,8 +17,28 @@ class ArtikelControllers extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $kategori = Artikel::select('*');
+            return DataTables::of($kategori)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    //form delete
+                    $formdelete = '<form action="' . route('artikel.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    //form edit
+                    $formedit = '<a href="' . route('artikel.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>';
+                    //form detail
+                    $formdetail = '<a href="' . route('artikel.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
+                    $btn = $formedit . '
+                        <br/>
+                        ' . $formdelete . '<br/>'
+                        . $formdetail . '';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('admin.artikel.index');
     }
 
@@ -42,7 +63,7 @@ class ArtikelControllers extends Controller
     {
         $this->validate($request,[
             'judul'=>'required',
-            'artikel'=>'required',
+            'detail'=>'required',
             'kategori'=>'required',
             'status'=>'required',
         ]);
@@ -50,10 +71,10 @@ class ArtikelControllers extends Controller
             'id'=>Uuid::uuid4()->toString(),
             "nama_artikel"=>$request->judul,
             "slug"=>Str::slug($request->judul),
-            "isi_artikel"=>$request->artikel,
-            // "gambar",
+            "isi_artikel"=>$request->detail,
+            "gambar"=>"null",
             "kategori_artikel_id"=>$request->kategori,
-            "tanggal_publish"=>'null',
+            "tanggal_publish"=>now(),
             "publish"=>'null',
             "penulis"=>'null',
             "status"=>$request->status,
@@ -68,9 +89,9 @@ class ArtikelControllers extends Controller
             ]);
         }
         if ($artikel) {
-            return redirect()->route('admin.artikel.index')->with('success','Data berhasil ditambahkan');
+            return redirect()->route('artikel.index')->with('success','Data berhasil ditambahkan');
         }else{
-            return redirect()->route('admin.artikel.index')->with('error','Data gagal ditambahkan');
+            return redirect()->route('artikel.index')->with('error','Data gagal ditambahkan');
         }
     }
 

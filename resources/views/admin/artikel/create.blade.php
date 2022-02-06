@@ -31,20 +31,21 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('artikel.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                   <div class="row">
                     <div class="col-6">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
-                        <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
+                        <input name="judul" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Kategori</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="kategori" class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
@@ -57,7 +58,7 @@
                         <label for="exampleInputFile">Gambar</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input name="icon" type="file" class="custom-file-input" id="exampleInputFile">
+                            <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                           </div>
                           <div class="input-group-append">
@@ -69,7 +70,7 @@
                         <label for="exampleInputEmail1">Status</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="status" class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             <option selected="selected" value="0">Pending</option>
                             <option value="2">Simpan</option>

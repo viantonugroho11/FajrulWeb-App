@@ -133,20 +133,20 @@
       var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('kategori-artikel.index') }}",
+        ajax: "{{ route('artikel.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama',
-            name: 'nama'
+            data: 'nama_artikel',
+            name: 'nama_artikel'
           },
           {
             data: 'slug',
             name: 'slug'
           },
           {
-            data: 'icon',
-            name: 'icon'
+            data: 'status',
+            name: 'status'
           },
           {
             data: 'action',
