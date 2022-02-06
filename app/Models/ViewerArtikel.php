@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ViewerArtikel extends Model
 {
     use HasFactory;
-    protected $fillable = ['id', 'artikel_id'];
-
+    protected $fillable = ['artikel_id'];
 }

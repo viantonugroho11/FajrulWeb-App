@@ -10,4 +10,10 @@ class Newsletter extends Model
 {
     use HasFactory,SoftDeletes;
     public $incrementing = false;
+    protected $fillable = [
+            'id',
+            'user_id',
+            'email',
+            'nama',
+    ];
 }
