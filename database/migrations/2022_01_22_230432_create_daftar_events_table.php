@@ -22,6 +22,7 @@ class CreateDaftarEventsTable extends Migration
             $table->string('kode_unik')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

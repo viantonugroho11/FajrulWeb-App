@@ -14,8 +14,19 @@ class CreateAcarasTable extends Migration
     public function up()
     {
         Schema::create('acaras', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('nama');
+            $table->string('slug');
+            $table->string('gambar');
+            $table->string('deskripsi');
+            $table->date('tanggal_kegiatan');
+            $table->string('tempat');
+            $table->date('batas_pendaftaran');
+            $table->integer('jumlah_peserta');
+            $table->integer('status')->default(0);
+            $table->string('harga')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
