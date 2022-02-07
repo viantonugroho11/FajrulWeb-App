@@ -22,10 +22,15 @@ Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterContr
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//login admin
+Route::get('/admin', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'getLogin'])->name('adminlogin');
+Route::post('/admin', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'postLogin']);
+Route::get('/admin/logout', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'postLogout'])->name('adminlogout');
 
 
-// Route::middleware(['admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardControllers::class, 'index'])->name('admin.dashboard');
     Route::resource('/kategori-artikel', App\Http\Controllers\Admin\Kategori\KategoriArtikelControllers::class);
     Route::resource('/artikel', App\Http\Controllers\Admin\Artikel\ArtikelControllers::class);
@@ -33,4 +38,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     // Route::resource('/kategori-acara', App\Http\Controllers\Admin\Kategori\KategoriAcaraControllers::class);
     Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
     Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);
-// });
+});

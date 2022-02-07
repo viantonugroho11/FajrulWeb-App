@@ -15,7 +15,7 @@
       <p class="copyright" style="font-size: 16px;line-height: 10px;">Fajrul Islam © 2022</p>
       <!-- End: Copyright -->
       <!-- Start: Copyright -->
-      <p class="copyright" style="font-size: 16px;line-height: 10px;">Made by xxx</p><!-- End: Copyright -->
+      <p class="copyright" style="font-size: 16px;line-height: 10px;">Made by Faris Kalimalang 2018</p><!-- End: Copyright -->
     </div>
   </div>
 </div><!-- End: 1 Row 2 Columns -->

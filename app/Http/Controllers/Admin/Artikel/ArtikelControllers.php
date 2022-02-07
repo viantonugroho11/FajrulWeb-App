@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use App\Models\KategoriArtikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
@@ -78,7 +79,7 @@ class ArtikelControllers extends Controller
             "kategori_artikel_id"=>$request->kategori,
             "tanggal_publish"=>now(),
             "publish"=>'null',
-            "penulis"=>'null',
+            "penulis"=>Auth::user()->id,
             "status"=>$request->status,
         ]);
         if($request->file('foto')!=null){
@@ -147,7 +148,7 @@ class ArtikelControllers extends Controller
             "kategori_artikel_id" => $request->kategori,
             "tanggal_publish" => 'null',
             "publish" => 'null',
-            "penulis" => 'null',
+            // "penulis" => 'null',
             "status" => $request->status,
         ]);
         if ($request->file('foto') != null) {
