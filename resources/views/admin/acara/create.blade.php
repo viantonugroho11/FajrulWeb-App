@@ -6,12 +6,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Artikel</h1>
+            <h1>Tambah Acara</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Artikel</li>
+              <li class="breadcrumb-item">Data Acara</li>
+              <li class="breadcrumb-item active">Tambah Acara</li>
             </ol>
           </div>
         </div>
@@ -31,25 +32,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('acara.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                   <div class="row">
                     <div class="col-6">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
                         <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                          placeholder="Judul Artikel">
+                          placeholder="Judul Acara">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Kategori</label>
+                        <label for="exampleInputEmail1">Tanggal Kegiatan</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
+                        {{-- //date --}}
+                        <input name="tgl_kegiatan" type="date" class="form-control" placeholder="Tanggal">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Batas Pendaftaran</label>
+                        <input name="bts_pedaftaran" type="date" class="form-control" placeholder="Tanggal">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Batas Peserta</label>
+                        <input name="bts_peserta" type="number" class="form-control" placeholder="Jumlah Peserta">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tempat</label>
+                        <input name="tempat" type="text" class="form-control" placeholder="Tempat Acara">
                       </div>
                     </div>
                     <div class="col-6">
@@ -57,7 +67,7 @@
                         <label for="exampleInputFile">Gambar</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input name="icon" type="file" class="custom-file-input" id="exampleInputFile">
+                            <input name="gambar" type="file" class="custom-file-input" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                           </div>
                           <div class="input-group-append">
@@ -70,27 +80,52 @@
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
                         <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            <option selected="selected" value="0">Pending</option>
-                            <option value="2">Simpan</option>
-                            <option value="1" disabled>Publish</option>
-                            {{-- @foreach ($kategori as $item)
+                          <option selected="selected" value="">Pilihan</option>
+                          <option selected="selected" value="0">Pending</option>
+                          <option value="2">Simpan</option>
+                          <option value="1" disabled>Publish</option>
+                          {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach --}}
                         </select>
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Status Acara</label>
+                        {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Judul Artikel"> --}}
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected" value="">Pilihan</option>
+                          <option selected="selected" value="0">Wajib Donasi</option>
+                          <option value="2">Tidak Wajib Donasi</option>
+                          {{-- <option value="1" disabled>Publish</option> --}}
+                          {{-- @foreach ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                            @endforeach --}}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Harga</label>
+                        <input name="harga" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Harga">
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
-                      <div class="form-group">
-                        <label>Isi Artikel</label>
-                        <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                        @error('detail')
-                          <div class="alert alert-danger mt-2">
-                              {{ $message }}
-                          </div>
-                        @enderror
+                    {{-- form acara --}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Deskripsi Singkat Acara</label>
+                      <textarea name="deskripsi" class="form-control" id="exampleInputEmail1"
+                        placeholder="Acara"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Detail Acara</label>
+                      <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
+                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                      @error('detail')
+                        <div class="alert alert-danger mt-2">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
 

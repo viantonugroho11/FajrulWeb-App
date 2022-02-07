@@ -6,12 +6,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Artikel</h1>
+            <h1>Tambah Acara</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Artikel</li>
+              <li class="breadcrumb-item">Data Acara</li>
+              <li class="breadcrumb-item active">Tambah Acara</li>
             </ol>
           </div>
         </div>
@@ -31,7 +32,9 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('acara.update',$acara->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="row">
                     <div class="col-6">
@@ -41,15 +44,19 @@
                           placeholder="Judul Artikel">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Kategori</label>
+                        <label for="exampleInputEmail1">Tanggal Kegiatan</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
+                          {{-- //date --}}
+                          <input name="tgl_kegiatan" type="date" class="form-control" placeholder="Tanggal">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Batas Pendaftaran</label>
+                          <input name="bts_pedaftaran" type="date" class="form-control" placeholder="Tanggal">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Batas Peserta</label>
+                          <input name="bts_peserta" type="number" class="form-control" placeholder="Jumlah Peserta">
                       </div>
                     </div>
                     <div class="col-6">
@@ -79,9 +86,34 @@
                             @endforeach --}}
                         </select>
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Status Acara</label>
+                        {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Judul Artikel"> --}}
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected" value="">Pilihan</option>
+                            <option selected="selected" value="0">Wajib Donasi</option>
+                            <option value="2">Tidak Wajib Donasi</option>
+                            {{-- <option value="1" disabled>Publish</option> --}}
+                            {{-- @foreach ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                            @endforeach --}}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Harga</label>
+                        <input name="harga" type="text" class="form-control" id="exampleInputEmail1"
+                          placeholder="Harga">
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
+                      {{-- form acara --}}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Acara</label>
+                            <textarea name="isiacara" class="form-control" id="exampleInputEmail1"
+                            placeholder="Acara"></textarea>
+                        </div>
                       <div class="form-group">
                         <label>Isi Artikel</label>
                         <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"

@@ -16,11 +16,13 @@ class Acara extends Model
             'slug',
             'gambar',
             'deskripsi',
+            'deskripsi_singkat',
             'tanggal_kegiatan',
             'tempat',
             'batas_pendaftaran',
             'jumlah_peserta',
             'status',
+            'status_event',
             'harga',
     ];
 }

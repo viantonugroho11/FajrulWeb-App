@@ -19,11 +19,13 @@ class CreateAcarasTable extends Migration
             $table->string('slug');
             $table->string('gambar');
             $table->string('deskripsi');
+            $table->string('deskripsi_singkat');
             $table->date('tanggal_kegiatan');
             $table->string('tempat');
             $table->date('batas_pendaftaran');
             $table->integer('jumlah_peserta');
             $table->integer('status')->default(0);
+            $table->integer('status_event')->default(0);
             $table->string('harga')->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -62,8 +62,8 @@
       <div class="col-md-12 text-start d-xxl-flex align-items-center align-self-center justify-content-xxl-center"
         style="margin: 0px;padding: 0px;">
         <div class="card-group" style="
-                width: 1200px;height: 500px;
-                padding: 2%;color: rgba(243, 243, 243, 1);font-family: Poppins, sans-serif;">
+                  width: 1200px;height: 500px;
+                  padding: 2%;color: rgba(243, 243, 243, 1);font-family: Poppins, sans-serif;">
           {{-- <div class="card d-xxl-flex" style="margin: 1rem;border-radius: 20px;background: rgba(243,243,243,0.2);">
             <div class="card-body" style="text-align: right;">
               <h4 class="card-title" style="text-align: left;background: rgba(243,243,243,0);font-size: 30px;">Title
@@ -189,9 +189,9 @@
 
     .limit-text {
       overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 12;
-  -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 12;
+      -webkit-box-orient: vertical;
     }
 
   </style>
