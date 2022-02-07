@@ -30,6 +30,8 @@ Route::post('/admin', [App\Http\Controllers\Admin\Auth\AuthControllers::class, '
 Route::get('/admin/logout', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'postLogout'])->name('adminlogout');
 
 
+Route::get('/kirimemail', [App\Http\Controllers\Admin\Mail\TestControllers::class, 'index'])->name('kirimemail');
+
 Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardControllers::class, 'index'])->name('admin.dashboard');
     Route::resource('/kategori-artikel', App\Http\Controllers\Admin\Kategori\KategoriArtikelControllers::class);

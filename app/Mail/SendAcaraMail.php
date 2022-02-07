@@ -28,6 +28,14 @@ class SendAcaraMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        // return $this->from('support@fajrulislamtes.ugcorpusskkni.online')
+        // ->view('emailku')
+        // ->with(
+        //     [
+        //         'nama' => 'Diki Alfarabi Hadi',
+        //         'website' => 'www.malasngoding.com',
+        //     ]
+        // );
+        // return $this->view('view.name');
     }
 }
