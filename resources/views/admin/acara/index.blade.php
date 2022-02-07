@@ -43,9 +43,10 @@
                     <tr>
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
-                      <th>Slug</th>
-                      <th>Icon</th>
-                      {{-- <th>Status</th> --}}
+                      <th>Tempat</th>
+                      <th>Tanggal Kegiatan</th>
+                      <th>Batas Peserta</th>
+                      <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -133,7 +134,7 @@
       var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('kategori-artikel.index') }}",
+        ajax: "{{ route('acara.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
@@ -141,12 +142,27 @@
             name: 'nama'
           },
           {
-            data: 'slug',
-            name: 'slug'
+            data: 'tempat',
+            name: 'tempat'
           },
           {
-            data: 'icon',
-            name: 'icon'
+            data: 'tanggal_kegiatan',
+            name: 'tanggal_kegiatan'
+          },
+          {
+            data: 'jumlah_peserta',
+            name: 'jumlah'
+          },
+          {
+            data: 'status',
+            name: 'status',
+            render: function(data, type, row, meta) {
+              if (data == '1') {
+                return '<span class="badge badge-success">Aktif</span>';
+              } else {
+                return '<span class="badge badge-danger">Tidak Aktif</span>';
+              }
+            }
           },
           {
             data: 'action',

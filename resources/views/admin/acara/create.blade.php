@@ -79,7 +79,7 @@
                         <label for="exampleInputEmail1">Status</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="status" class="form-control select2" style="width: 100%;">
                           <option selected="selected" value="">Pilihan</option>
                           <option selected="selected" value="0">Pending</option>
                           <option value="2">Simpan</option>
@@ -93,7 +93,7 @@
                         <label for="exampleInputEmail1">Status Acara</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="status_acara" class="form-control select2" style="width: 100%;">
                           <option selected="selected" value="">Pilihan</option>
                           <option selected="selected" value="0">Wajib Donasi</option>
                           <option value="2">Tidak Wajib Donasi</option>
