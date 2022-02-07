@@ -12,7 +12,9 @@ class LandingControllers extends Controller
     public function index()
     {
         $artikel=Artikel::limit(3)->orderby('created_at','desc')->where('status','=','1')->get();
+        $acara = Acara::limit(3)->orderby('created_at', 'desc')->where('status', '=', '1')->get();
         // $acara=Acara::limit(3)->orderby('created_at','desc')->get();
-        return view('users.landing.index',compact('artikel'));
+        return view('users.landing.index',compact('artikel','acara'));
+        // return view('users.landing.index',compact('artikel'));
     }
 }

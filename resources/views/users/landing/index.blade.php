@@ -86,9 +86,9 @@
                     {!! $item->isi_singkat !!}
                   </p>
                 </div>
-                <button class="btn btn-primary" type="button" style="background: rgba(13,110,253,0);border-style: none;">
+                <a class="btn btn-primary" type="button" style="background: rgba(13,110,253,0);border-style: none;">
                   Button
-                </button>
+                </a>
               </div>
             </div>
           @empty
@@ -142,17 +142,31 @@
         style="margin: 0px;padding: 0px;">
         <div class="card-group"
           style="width: 1200px;height: 500px;padding: 2%;color: rgba(243, 243, 243, 1);font-family: Poppins, sans-serif;">
+
+          @forelse ($acara as $item)
           <div class="card d-xxl-flex" style="margin: 1rem;border-radius: 20px;background: rgba(243,243,243,0.2);">
             <div class="card-body" style="text-align: right;">
-              <h4 class="card-title" style="text-align: left;background: rgba(243,243,243,0);font-size: 30px;">Title
+              <h4 class="card-title" style="text-align: left;background: rgba(243,243,243,0);font-size: 30px;">
+                {{ $item->nama }}
               </h4>
-              <p class="card-text" style="text-align: left;background: rgba(243,243,243,0);">Nullam id dolor id nibh
-                ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit
-                non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button"
+              <p class="card-text" style="text-align: left;background: rgba(243,243,243,0);">
+                {{$item->deskripsi_singkat}}
+            </p>
+            <button class="btn btn-primary" type="button"
                 style="background: rgba(13,110,253,0);border-style: none;">Button</button>
             </div>
           </div>
-          <div class="card"
+          @empty
+          <div class="card d-xxl-flex" style="margin: 1rem;border-radius: 20px;background: rgba(243,243,243,0.2);">
+            <div class="card-body" style="text-align: right;">
+              <h4 class="card-title" style="text-align: left;background: rgba(243,243,243,0);font-size: 30px;">
+              </h4>
+              <p class="card-text" style="text-align: left;background: rgba(243,243,243,0);">Tidak ada acara</p><button class="btn btn-primary" type="button"
+                style="background: rgba(13,110,253,0);border-style: none;">Button</button>
+            </div>
+          </div>
+          @endforelse
+          {{-- <div class="card"
             style="margin: 1rem;width: 100%;height: auto;border-radius: 20px;background: rgba(243,243,243,0.2);">
             <div class="card-body" style="text-align: right;border-radius: 0;">
               <h4 class="card-title" style="text-align: left;font-family: rgba(243, 243, 243, 1);font-size: 30px;">
@@ -171,7 +185,7 @@
                 metus.</p><button class="btn btn-primary" type="button"
                 style="background: rgba(13,110,253,0);border-style: none;">Button</button>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
