@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [App\Http\Controllers\Frontend\Landing\LandingControllers::class, 'index'])->name('landing.index');
-Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterControllers::class])->name('landing.newsletter');
+Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterControllers::class,'newssave'])->name('landing.newsletter');
 
 Auth::routes();
 
