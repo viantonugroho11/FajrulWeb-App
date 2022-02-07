@@ -33,7 +33,7 @@ class ArtikelControllers extends Controller
                     $formdetail = '<a href="' . route('artikel.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
                     $btn = $formedit . '
                         <br/>
-                        ' . $formdelete . '<br/>'
+                        ' . $formdelete . ''
                         . $formdetail . '';
                     return $btn;
                 })
@@ -92,9 +92,9 @@ class ArtikelControllers extends Controller
             ]);
         }
         if ($artikel) {
-            return redirect()->route('artikel.index')->with('success','Data berhasil ditambahkan');
+            return redirect()->route('artikel.index')->withSuccess('Data berhasil ditambahkan');
         }else{
-            return redirect()->route('artikel.index')->with('error','Data gagal ditambahkan');
+            return redirect()->route('artikel.index')->withErrors('Data gagal ditambahkan');
         }
     }
 
@@ -135,7 +135,8 @@ class ArtikelControllers extends Controller
         $artikel=Artikel::find($id);
         $this->validate($request, [
             'judul' => 'required',
-            'artikel' => 'required',
+            'detail' => 'required',
+            'isi_singkat' => 'required',
             'kategori' => 'required',
             'status' => 'required',
         ]);
@@ -143,11 +144,12 @@ class ArtikelControllers extends Controller
             // 'id' => Uuid::uuid4()->toString(),
             "nama_artikel" => $request->judul,
             "slug" => Str::slug($request->judul),
-            "isi_artikel" => $request->artikel,
+            "isi_singkat" => $request->isi_singkat,
+            "isi_artikel" => $request->detail,
             // "gambar",
             "kategori_artikel_id" => $request->kategori,
-            "tanggal_publish" => 'null',
-            "publish" => 'null',
+            // "tanggal_publish" => 'null',
+            // "publish" => 'null',
             // "penulis" => 'null',
             "status" => $request->status,
         ]);
@@ -161,9 +163,9 @@ class ArtikelControllers extends Controller
             ]);
         }
         if ($artikel) {
-            return redirect()->route('admin.artikel.index')->with('success', 'Data berhasil ditambahkan');
+            return redirect()->route('artikel.index')->with('success', 'Data berhasil ditambahkan');
         } else {
-            return redirect()->route('admin.artikel.index')->with('error', 'Data gagal ditambahkan');
+            return redirect()->route('artikel.index')->with('error', 'Data gagal ditambahkan');
         }
     }
 
@@ -178,9 +180,9 @@ class ArtikelControllers extends Controller
         $artikel = Artikel::find($id);
         $artikel->delete();
         if ($artikel) {
-            return redirect()->route('admin.artikel.index')->with('success', 'Data berhasil ditambahkan');
+            return redirect()->route('artikel.index')->withSuccess( 'Data berhasil ditambahkan');
         } else {
-            return redirect()->route('admin.artikel.index')->with('error', 'Data gagal ditambahkan');
+            return redirect()->route('artikel.index')->withErrors('Data gagal ditambahkan');
         }
     }
 }

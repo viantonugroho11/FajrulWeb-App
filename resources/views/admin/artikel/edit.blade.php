@@ -31,23 +31,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('artikel.update',$artikel->id)}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="row">
                     <div class="col-6">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
-                        <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                          placeholder="Judul Artikel">
+                        <input name="judul" type="text" class="form-control" id="exampleInputEmail1"
+                         value="{{old('judul',$artikel->nama_artikel)}}" placeholder="Judul Artikel">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Kategori</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="kategori" class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                                <option value="{{$item->id}}" {{$artikel->kategori_artikel_id == $item->id ? 'selected':''}}>{{$item->nama_kategori}}</option>
                             @endforeach
                         </select>
                       </div>
@@ -57,7 +59,7 @@
                         <label for="exampleInputFile">Gambar</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input name="icon" type="file" class="custom-file-input" id="exampleInputFile">
+                            <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                           </div>
                           <div class="input-group-append">
@@ -69,7 +71,7 @@
                         <label for="exampleInputEmail1">Status</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
+                        <select name="status" class="form-control select2" style="width: 100%;">
                             <option selected="selected" value="">Pilihan</option>
                             <option selected="selected" value="0">Pending</option>
                             <option value="1" disabled>Publish</option>
@@ -84,12 +86,12 @@
                       <div class="form-group">
                             <label for="exampleInputEmail1">Ringkasan</label>
                             <textarea name="isi_singkat" class="form-control" id="exampleInputEmail1"
-                            placeholder="Isi Artikel"></textarea>
+                            placeholder="Isi Artikel">{{$artikel->isi_singkat}}</textarea>
                         </div>
                       <div class="form-group">
                         <label>Isi Artikel</label>
                         <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!! $artikel->isi_artikel !!}</textarea>
                         @error('detail')
                           <div class="alert alert-danger mt-2">
                               {{ $message }}

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard SINDU - Sistem Informasi Hindu</title>
+  <title>Dashboard Fajrul Islam - Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -37,7 +37,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   @yield('scriptCss')
-  <link rel="stylesheet" href="{{ asset('assets/font/all.min.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('assets/backend/font/all.min.css') }}"> --}}
 </head>
 <script src="https://kit.fontawesome.com/f7e99e0495.js" crossorigin="anonymous"></script>
 
@@ -67,7 +67,9 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+  {{-- @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"]) --}}
   @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 
   <!-- jQuery -->
   {{-- <script src="{{asset('assets/backend/plugins/jquery/jquery.min.js')}}"></script> --}}

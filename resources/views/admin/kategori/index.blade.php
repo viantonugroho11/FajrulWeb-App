@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Pura</h1>
+            <h1>Data Kategori Artikel</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Pura</li>
+              <li class="breadcrumb-item active">Data Kategori Artikel</li>
             </ol>
           </div>
         </div>
@@ -25,7 +25,11 @@
         <div class="row">
           <div class="col-12">
             <!-- /.card -->
-
+            <div class="card">
+                <div class="card-header">
+                <a href="{{route('kategori-artikel.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                </div>
+            </div>
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Data Kategori</h3>
