@@ -17,6 +17,7 @@ class CreateArtikelsTable extends Migration
             $table->uuid('id')->primary();
             $table->string("nama_artikel");
             $table->string("slug");
+            $table->text("isi_singkat");
             $table->longtext("isi_artikel");
             $table->string("gambar");
             $table->string("kategori_artikel_id");

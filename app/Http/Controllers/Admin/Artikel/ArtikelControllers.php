@@ -64,6 +64,7 @@ class ArtikelControllers extends Controller
         $this->validate($request,[
             'judul'=>'required',
             'detail'=>'required',
+            'isi_singkat'=>'required',
             'kategori'=>'required',
             'status'=>'required',
         ]);
@@ -71,6 +72,7 @@ class ArtikelControllers extends Controller
             'id'=>Uuid::uuid4()->toString(),
             "nama_artikel"=>$request->judul,
             "slug"=>Str::slug($request->judul),
+            "isi_singkat"=>$request->isi_singkat,
             "isi_artikel"=>$request->detail,
             "gambar"=>"null",
             "kategori_artikel_id"=>$request->kategori,

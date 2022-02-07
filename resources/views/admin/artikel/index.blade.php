@@ -44,7 +44,8 @@
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
                       <th>Slug</th>
-                      <th>Icon</th>
+                      <th>Deskripsi Singkat</th>
+                      <th>Status</th>
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
@@ -145,8 +146,23 @@
             name: 'slug'
           },
           {
-            data: 'status',
-            name: 'status'
+            data: 'isi_singkat',
+            name: 'isi_singkat'
+          },
+          {
+              //dataif
+                data: 'status',
+                name: 'status',
+                render: function(data, type, row, meta){
+                  if(data == '1'){
+                    return '<span class="badge badge-success">Aktif</span>';
+                  }else if(data == '2'){
+                    return '<span class="badge badge-warning">Arsip</span>';
+                  }
+                  else{
+                    return '<span class="badge badge-danger">Tidak Aktif</span>';
+                  }
+                }
           },
           {
             data: 'action',

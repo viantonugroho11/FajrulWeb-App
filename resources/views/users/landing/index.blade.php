@@ -61,10 +61,9 @@
       style="height: 600px;background: rgba(47, 49, 61, 1);border-radius: 20px;margin: 0px;box-shadow: 0px 15px 40px 0px rgba(33,37,41,0.5);">
       <div class="col-md-12 text-start d-xxl-flex align-items-center align-self-center justify-content-xxl-center"
         style="margin: 0px;padding: 0px;">
-        <div class="card-group"
-          style="
-          width: 1200px;height: 500px;
-          padding: 2%;color: rgba(243, 243, 243, 1);font-family: Poppins, sans-serif;">
+        <div class="card-group" style="
+                width: 1200px;height: 500px;
+                padding: 2%;color: rgba(243, 243, 243, 1);font-family: Poppins, sans-serif;">
           {{-- <div class="card d-xxl-flex" style="margin: 1rem;border-radius: 20px;background: rgba(243,243,243,0.2);">
             <div class="card-body" style="text-align: right;">
               <h4 class="card-title" style="text-align: left;background: rgba(243,243,243,0);font-size: 30px;">Title
@@ -81,12 +80,15 @@
               style="margin: 1rem;width: 100%;height: auto;border-radius: 20px;background: rgba(243,243,243,0.2);">
               <div class="card-body" style="text-align: right;border-radius: 0;">
                 <h4 class="card-title" style="text-align: left;font-family: rgba(243, 243, 243, 1);font-size: 30px;">
-                  {{ $item->judul }}</h4>
-                <p class="card-text" style="text-align: left;font-family: rgba(243, 243, 243, 1);">Nullam id dolor id
-                  nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-                  id
-                  elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button"
-                  style="background: rgba(13,110,253,0);border-style: none;">Button</button>
+                  {{ $item->nama_artikel }}</h4>
+                <div class="limit-text">
+                  <p class="card-text demolength2" style="text-align: left;font-family: rgba(243, 243, 243, 1);">
+                    {!! $item->isi_singkat !!}
+                  </p>
+                </div>
+                <button class="btn btn-primary" type="button" style="background: rgba(13,110,253,0);border-style: none;">
+                  Button
+                </button>
               </div>
             </div>
           @empty
@@ -174,4 +176,23 @@
       </div>
     </div>
   </div><!-- End: 2 Rows 1+1 Columns -->
+@endsection
+
+@section('css')
+  <style>
+    .demolength1 {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .limit-text {
+      overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+    }
+
+  </style>
 @endsection

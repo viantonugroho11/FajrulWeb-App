@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ asset('assets/frontend/fonts/fontawesome-all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/frontend/fonts/ionicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/frontend/css/styles.min.css') }}">
+  @yield('css')
 </head>
 
 <body
@@ -23,6 +24,7 @@
   @include('users.tools.newsletter')
   @include('users.tools.footer')
   <script src="{{ asset('assets/frontend/bootstrap/js/bootstrap.min.js') }}"></script>
+  @yield('js')
 </body>
 
 </html>

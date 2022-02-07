@@ -82,6 +82,11 @@
                   </div>
                   <div class="col-12">
                       <div class="form-group">
+                            <label for="exampleInputEmail1">Ringkasan</label>
+                            <textarea name="isi_singkat" class="form-control" id="exampleInputEmail1"
+                            placeholder="Isi Artikel"></textarea>
+                        </div>
+                      <div class="form-group">
                         <label>Isi Artikel</label>
                         <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
                           style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>

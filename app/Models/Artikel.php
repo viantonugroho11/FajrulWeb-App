@@ -14,6 +14,7 @@ class Artikel extends Model
         'id',
         "nama_artikel",
         "slug",
+        "isi_singkat",
         "isi_artikel",
         "gambar",
         "kategori_artikel_id",
