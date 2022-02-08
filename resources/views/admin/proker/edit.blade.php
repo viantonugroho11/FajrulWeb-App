@@ -41,14 +41,20 @@
                           placeholder="Judul Artikel">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Kategori</label>
+                        <label for="exampleInputEmail1">Divisi</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
+                        <select name="divisi" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" value="">Pilihan</option>
+                          @foreach ($divisi as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama }}
+                              @if ($item->regional == 1)
+                                Depok - Kalimalang
+                              @else
+                                Karawaci
+                              @endif
+                            </option>
+                          @endforeach
                         </select>
                       </div>
                     </div>
@@ -69,11 +75,12 @@
                         <label for="exampleInputEmail1">Status</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            <option selected="selected" value="0">Pending</option>
-                            <option value="1" disabled>Publish</option>
-                            {{-- @foreach ($kategori as $item)
+                        <select name="status" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" value="">Pilihan</option>
+                          <option selected="selected" value="0">Pending</option>
+                          <option value="2">Simpan</option>
+                          <option value="1" disabled>Publish</option>
+                          {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach --}}
                         </select>
@@ -81,15 +88,15 @@
                     </div>
                   </div>
                   <div class="col-12">
-                      <div class="form-group">
-                        <label>Isi Artikel</label>
-                        <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                        @error('detail')
-                          <div class="alert alert-danger mt-2">
-                              {{ $message }}
-                          </div>
-                        @enderror
+                    <div class="form-group">
+                      <label>Isi Artikel</label>
+                      <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
+                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                      @error('detail')
+                        <div class="alert alert-danger mt-2">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
 

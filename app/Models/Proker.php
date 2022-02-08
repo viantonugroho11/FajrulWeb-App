@@ -16,5 +16,6 @@ class Proker extends Model
         'slug',
         'gambar',
         'deskripsi',
+        'status',
     ];
 }

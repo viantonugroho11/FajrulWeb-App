@@ -26,9 +26,9 @@
           <div class="col-12">
             <!-- /.card -->
             <div class="card">
-                <div class="card-header">
-                <a href="{{route('proker.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
-                </div>
+              <div class="card-header">
+                <a href="{{ route('proker.create') }}" class="btn btn-sm btn-success">Tambah Data</a>
+              </div>
             </div>
             <div class="card">
               <div class="card-header">
@@ -53,34 +53,6 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  {{-- <tbody>
-                    @php
-                        $i=1;
-                    @endphp
-                    @forelse ($datapura as $row)
-                    <tr>
-                      <td>{{$i++}}</td>
-
-                      <td>{{$row->nama_pura}}</td>
-                      <td>{{$row->jenis_nama}}</td>
-                      <td>{{$row->kondisi_nama}}</td>
-                      <td>{{$row->status_tanah_nama}}</td>
-                      <td>{{$row->provinsi_nama}}</td>
-                      <td>{{$row->kota_nama}}</td>
-                      <td>
-                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapura.destroy', $row->id) }}" method="POST">
-                            <a href="{{ route('datapura.edit', $row->id) }}" class="btn btn-sm btn-success">Edit</a>
-
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
-                      </td>
-                    </tr>
-                    @empty
-
-                    @endforelse
-                  </tbody> --}}
                   <tfoot>
                   </tfoot>
                 </table>
@@ -140,7 +112,7 @@
         language: {
           processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
         },
-        ajax: "{{ route('kategori-artikel.index') }}",
+        ajax: "{{ route('proker.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
@@ -152,8 +124,8 @@
             name: 'slug'
           },
           {
-            data: 'icon',
-            name: 'icon'
+            data: 'divisi',
+            name: 'divisi'
           },
           {
             data: 'action',
