@@ -10,6 +10,8 @@ use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
+
 class ProkerControllers extends Controller
 {
     /**
@@ -17,8 +19,28 @@ class ProkerControllers extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $kategori = Proker::select('*');
+            return DataTables::of($kategori)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    //form delete
+                    $formdelete = '<form action="' . route('artikel.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    //form edit
+                    $formedit = '<a href="' . route('artikel.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>';
+                    //form detail
+                    $formdetail = '<a href="' . route('artikel.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
+                    $btn = $formedit . '
+                        <br/>
+                        ' . $formdelete . ''
+                        . $formdetail . '';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('admin.proker.index');
     }
 

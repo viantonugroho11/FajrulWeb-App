@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Artikel</h1>
+            <h1>Tambah Proker</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Artikel</li>
+              <li class="breadcrumb-item active">Data Proker</li>
             </ol>
           </div>
         </div>
@@ -38,12 +38,12 @@
                       <div class="form-group">
                         <label for="exampleInputEmail1">Judul</label>
                         <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                          placeholder="Judul Artikel">
+                          placeholder="Judul Proker">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Divisi</label>
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                          placeholder="Judul Artikel"> --}}
+                          placeholder="Judul Proker"> --}}
                         <select name="divisi" class="form-control select2" style="width: 100%;">
                           <option selected="selected" value="">Pilihan</option>
                           @foreach ($divisi as $item)
