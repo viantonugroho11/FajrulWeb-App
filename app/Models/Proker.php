@@ -17,5 +17,6 @@ class Proker extends Model
         'gambar',
         'deskripsi',
         'status',
+        'divisi_id',
     ];
 }

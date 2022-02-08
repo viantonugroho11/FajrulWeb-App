@@ -31,7 +31,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="{{route('proker.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                   <div class="row">
                     <div class="col-6">

@@ -71,9 +71,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Donasi</p>
+                  <span class="badge badge-info right">Comming Soon</span>
                 </a>
               </li>
             </ul>
@@ -92,6 +93,8 @@
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Users
+                <span class="badge badge-info right">Comming Soon</span>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
                 {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
@@ -121,7 +124,7 @@
           </li>
           <li class="nav-header">Setting</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{route('admin.profile')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Change Password
@@ -130,15 +133,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Setting Website
               </p>
+              <span class="badge badge-info right">Comming Soon</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{route('adminlogout')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Logout

@@ -48,7 +48,7 @@
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
                       <th>Slug</th>
-                      <th>Icon</th>
+                      {{-- <th>Icon</th> --}}
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
@@ -122,10 +122,6 @@
           {
             data: 'slug',
             name: 'slug'
-          },
-          {
-            data: 'divisi',
-            name: 'divisi'
           },
           {
             data: 'action',

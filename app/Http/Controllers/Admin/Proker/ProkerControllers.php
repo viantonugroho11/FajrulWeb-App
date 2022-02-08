@@ -27,11 +27,11 @@ class ProkerControllers extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     //form delete
-                    $formdelete = '<form action="' . route('artikel.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    $formdelete = '<form action="' . route('proker.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
                     //form edit
-                    $formedit = '<a href="' . route('artikel.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>';
+                    $formedit = '<a href="' . route('proker.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>';
                     //form detail
-                    $formdetail = '<a href="' . route('artikel.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
+                    $formdetail = '<a href="' . route('proker.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
                     $btn = $formedit . '
                         <br/>
                         ' . $formdelete . ''
@@ -74,13 +74,14 @@ class ProkerControllers extends Controller
             'id'=>Uuid::uuid4()->toString(),
             'nama'=>$request->nama,
             'slug'=>Str::slug($request->nama),
-            // 'gambar',
+            'gambar'=>'null',
             'deskripsi'=>$request->detail,
             'status'=>$request->status,
+            'divisi_id'=>$request->divisi,
         ]);
         if($request->hasFile('icon')){
             $image=$request->file('icon');
-            $image->storeAs('public/artikel/', $image->hashName());
+            $image->storeAs('public/proker/', $image->hashName());
             $proker->update([
                 'gambar'=>$image->hashName()
             ]);
@@ -141,6 +142,7 @@ class ProkerControllers extends Controller
             // 'gambar',
             'deskripsi'=>$request->detail,
             'status'=>$request->status,
+            'divisi_id'=>$request->divisi,
         ]);
         if($request->hasFile('icon')){
             $image=$request->file('icon');

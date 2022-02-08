@@ -18,8 +18,9 @@ class CreateProkersTable extends Migration
             $table->string('nama');
             $table->string('slug');
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('status');
+            $table->string('divisi_id');
             $table->timestamps();
             $table->softDeletes();
         });
