@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Divisi;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-
+//str
+use Illuminate\Support\Str;
 class DivisiControllers extends Controller
 {
     /**
@@ -59,10 +60,12 @@ class DivisiControllers extends Controller
             'kategori'=>'required',
         ]);
 
-        $divisi=Divisi::created([
+        $divisi = Divisi::create([
             'nama'=>$request->nama,
+            'slug'=>str::slug($request->nama),
             'regional'=>$request->kategori,
         ]);
+
         if($divisi){
             return redirect()->route('divisi.index')->with('success','Data berhasil ditambahkan');
         }else{

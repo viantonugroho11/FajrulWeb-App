@@ -26,9 +26,9 @@
           <div class="col-12">
             <!-- /.card -->
             <div class="card">
-                <div class="card-header">
-                <a href="{{route('artikel.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
-                </div>
+              <div class="card-header">
+                <a href="{{ route('artikel.create') }}" class="btn btn-sm btn-success">Tambah Data</a>
+              </div>
             </div>
             <div class="card">
               <div class="card-header">
@@ -139,6 +139,11 @@
         processing: true,
         serverSide: true,
         ajax: "{{ route('artikel.index') }}",
+        zerorows: 'Tidak Ada Data',
+        //loading
+        language: {
+          processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
+        },
         columns: [
           // {data: 'id', name: 'id'},
           {
@@ -154,19 +159,18 @@
             name: 'isi_singkat'
           },
           {
-              //dataif
-                data: 'status',
-                name: 'status',
-                render: function(data, type, row, meta){
-                  if(data == '1'){
-                    return '<span class="badge badge-success">Aktif</span>';
-                  }else if(data == '2'){
-                    return '<span class="badge badge-warning">Arsip</span>';
-                  }
-                  else{
-                    return '<span class="badge badge-danger">Tidak Aktif</span>';
-                  }
-                }
+            //dataif
+            data: 'status',
+            name: 'status',
+            render: function(data, type, row, meta) {
+              if (data == '1') {
+                return '<span class="badge badge-success">Aktif</span>';
+              } else if (data == '2') {
+                return '<span class="badge badge-warning">Arsip</span>';
+              } else {
+                return '<span class="badge badge-danger">Tidak Aktif</span>';
+              }
+            }
           },
           {
             data: 'action',

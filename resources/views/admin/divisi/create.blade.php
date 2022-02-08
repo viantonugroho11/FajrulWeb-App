@@ -38,7 +38,7 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama</label>
                     <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                      placeholder="Enter email">
+                      placeholder="Nama Divisi">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Regional</label>
