@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Artikel;
+use App\Models\Proker;
+use App\Models\ViewerArtikel;
 use Illuminate\Http\Request;
 
 class DashboardControllers extends Controller
@@ -14,7 +17,12 @@ class DashboardControllers extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $artikel = Artikel::count();
+        $proker = Proker::count();
+        $acara = Acara::count();
+        $viewer=ViewerArtikel::count();
+        return view('admin.dashboard', compact('artikel', 'proker', 'acara', 'viewer'));
+        // return view('admin.dashboard');
     }
 
     /**
