@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Acara;
 use App\Models\Artikel;
 use App\Models\Proker;
 use App\Models\ViewerArtikel;
@@ -21,8 +22,8 @@ class DashboardControllers extends Controller
         $proker = Proker::count();
         $acara = Acara::count();
         $viewer=ViewerArtikel::count();
+        
         return view('admin.dashboard', compact('artikel', 'proker', 'acara', 'viewer'));
-        // return view('admin.dashboard');
     }
 
     /**

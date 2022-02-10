@@ -74,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{proker}}</h3>
+                <h3>{{$proker}}</h3>
 
                 <p>Proker</p>
               </div>
@@ -90,7 +90,7 @@
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
+          {{-- <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header">
@@ -456,10 +456,10 @@
               </div>
             </div>
             <!-- /.card -->
-          </section>
+          </section> --}}
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          {{-- <section class="col-lg-5 connectedSortable">
 
             <!-- Map card -->
             <div class="card bg-gradient-primary">
@@ -596,7 +596,7 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-          </section>
+          </section> --}}
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
