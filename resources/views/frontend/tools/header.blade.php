@@ -23,11 +23,12 @@
             <!-- Nav Start -->
             <div class="classynav">
               <ul id="nav">
-                <li class="current-item"><a href="./index.html">Beranda</a></li>
-                <li class="current-item"><a href="./index.html">Tentang</a></li>
-                <li class="current-item"><a href="./index.html">Proyek</a></li>
-                <li class="current-item"><a href="./index.html">Blog</a></li>
-                <li class="current-item"><a href="./index.html">Acara</a></li>
+                  {{-- if request link --}}
+                <li class="@if (request()->is('/')) current-item @endif"><a href="/">Home</a></li>
+                <li class=""><a href="./index.html">Tentang</a></li>
+                <li class=""><a href="./index.html">Proyek</a></li>
+                <li class=""><a href="./index.html">Blog</a></li>
+                <li class=""><a href="./index.html">Acara</a></li>
               </ul>
 
               <!-- Get A Quote -->
@@ -36,9 +37,9 @@
                             </div> -->
 
               <!-- Login / Register -->
-              <div class="login-register-btn mx-3">
+              {{-- <div class="login-register-btn mx-3">
                 <a href="#">Login <span>/ Register</span></a>
-              </div>
+              </div> --}}
 
               <!-- Search Icon -->
               <div class="search-icon" data-toggle="modal" data-target="#searchModal">

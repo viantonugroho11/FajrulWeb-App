@@ -79,4 +79,7 @@
     </div>
   </section>
   <!-- ***** About Us Area End ***** -->
+
+  @include('frontend.tools.blogLatest')
+  @include('frontend.tools.eventLatest')
 @endsection
