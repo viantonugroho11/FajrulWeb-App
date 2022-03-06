@@ -14,6 +14,7 @@ class LandingControllers extends Controller
         $artikel=Artikel::limit(3)->orderby('created_at','desc')->where('status','=','1')->get();
         $acara = Acara::limit(3)->orderby('created_at', 'desc')->where('status', '=', '1')->get();
         // $acara=Acara::limit(3)->orderby('created_at','desc')->get();
+        // dd($artikel);
         return view('frontend.home.index',compact('artikel','acara'));
         // return view('users.landing.index',compact('artikel'));
     }

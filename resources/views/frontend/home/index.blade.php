@@ -22,7 +22,7 @@
         <!-- About Us Content -->
         <div class="col-12 col-md-6">
           <div class="about-us-content mb-80">
-            <h2>We're a Agency Team &amp; Digital Marketing</h2>
+            <h2>Fajrul Islam</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing esed diam nonumy eirmod tempor invidunt ut
               labore et dolore magna.</p>
             <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata
@@ -50,7 +50,7 @@
         <!-- About Us Content -->
         <div class="col-12 col-md-6">
           <div class="about-us-content mb-80">
-            <h2>We're a Agency Team &amp; Digital Marketing</h2>
+            <h2>Fajrul Islam</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing esed diam nonumy eirmod tempor invidunt ut
               labore et dolore magna.</p>
             <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata
