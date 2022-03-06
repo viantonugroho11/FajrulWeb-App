@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Frontend\Landing\LandingControllers::class, 'index'])->name('landing.index');
 Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterControllers::class,'newssave'])->name('landing.newsletter');
-
+Route::get('/tentang', [App\Http\Controllers\Frontend\Tentang\TentangControlles::class, 'index'])->name('landing.about');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

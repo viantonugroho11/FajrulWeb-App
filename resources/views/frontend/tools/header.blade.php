@@ -25,7 +25,7 @@
               <ul id="nav">
                   {{-- if request link --}}
                 <li class="@if (request()->is('/')) current-item @endif"><a href="/">Home</a></li>
-                <li class=""><a href="./index.html">Tentang</a></li>
+                <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/tentang">Tentang</a></li>
                 <li class=""><a href="./index.html">Proyek</a></li>
                 <li class=""><a href="./index.html">Blog</a></li>
                 <li class=""><a href="./index.html">Acara</a></li>
