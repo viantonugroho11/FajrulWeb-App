@@ -27,8 +27,8 @@
                 <li class="@if (request()->is('/')) current-item @endif"><a href="/">Home</a></li>
                 <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/tentang">Tentang</a></li>
                 <li class=""><a href="./index.html">Proyek</a></li>
-                <li class=""><a href="./index.html">Blog</a></li>
-                <li class=""><a href="./index.html">Acara</a></li>
+                <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/blog">Blog</a></li>
+                <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/acara">Acara</a></li>
               </ul>
 
               <!-- Get A Quote -->

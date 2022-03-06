@@ -49,9 +49,9 @@
           <!-- Post Content -->
           <div class="post-content">
             <span class="post-date">{{$item->created_at}}</span>
-            <a href="#" class="post-title">{{$item->nama_artikel}}</a>
+            <a href="{{route('landing.blog.show',$item->slug)}}" class="post-title">{{$item->nama_artikel}}</a>
             <p>{{Str::limit($item->isi_singkat, 250, '...')}}</p>
-            <a href="{{$item->slug}}" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
+            <a href="{{route('landing.blog.show',$item->slug)}}" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
           </div>
         </div>
       </div>

@@ -16,6 +16,8 @@ class CreateViewerArtikelsTable extends Migration
         Schema::create('viewer_artikels', function (Blueprint $table) {
             $table->id();
             $table->string('artikel_id');
+            $table->string('ip_address');
+            $table->string('user_agent');
             $table->timestamps();
         });
     }
