@@ -7,12 +7,12 @@
       <div class="row h-100 align-items-end">
         <div class="col-12">
           <div class="breadcumb--con">
-            <h2 class="title">Blog Single</h2>
+            <h2 class="title">{{$artikels->nama_artikel}}</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Amazon REV2018 Workshop: Road to Seattle</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$artikels->slug}}</li>
               </ol>
             </nav>
           </div>
@@ -41,6 +41,7 @@
                   <div class="post-content text-center mb-50">
                     <a href="#" class="post-date">{{$artikels->created_at}}</a>
                     <h2>{{$artikels->nama_artikel}}</h2>
+                    <h6><span><i class="icon-eye"></i>Artikel ini dibaca sebanyak <b>{{$artikels->viewer->count()}}</b> Kali</span></h6>
                   </div>
                 </div>
                 <div class="col-12">

@@ -15,7 +15,7 @@ class BlogControllers extends Controller
         $artikel=Artikel::limit(3)->orderby('created_at','desc')->where('status','=','1')->get();
         $acara = Acara::limit(3)->orderby('created_at', 'desc')->where('status', '=', '1')->get();
 
-        $artikels=Artikel::orderby('created_at','desc')->where('status','=','1')->paginate(20);
+        $artikels=Artikel::orderby('created_at','desc')->where('status','=','1')->paginate(18);
         return view('frontend.article.index',compact('artikels','artikel','acara'));
         // return view('frontend.article.index');
     }
