@@ -1,63 +1,38 @@
 <footer class="footer-area section-padding-80-0">
-  <div class="container">
-    <div class="row justify-content-between">
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col">
+                <a class="nav-brand my-auto" href="index.html"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}" alt=""></a>
+            </div>
+            <div class="col">
+                <div class="nl-content mb-80 my-auto">
+                    <div class="d-flex">
+                        <a href="" class="mr-5">
+                            <img src="{{asset('assets/frontend/v1/imgfajrul/core-img/instagram.svg')}}">
 
-      <!-- Single Footer Widget -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="single-footer-widget mb-80">
-          <!-- Widget Title -->
-          <h4 class="widget-title">Contact Us</h4>
+                        </a>
+                        <a href="" class="mr-5">
+                            <img src="{{asset('assets/frontend/v1/imgfajrul/core-img/twitter.svg')}}">
 
-          <!-- Footer Content -->
-          <div class="footer-content mb-15">
-            <h3>(+65) 1234 5678</h3>
-            <p>40 Baria Sreet 13/2 NY City, US <br> hello.colorlib@gmail.com</p>
-          </div>
-          <p class="mb-0">Mon - Fri: 9:00 - 19:00 <br>
-            Closed on Weekends</p>
+                        </a>
+                        <a href="" class="mr-5">
+                            <img src="{{asset('assets/frontend/v1/imgfajrul/core-img/line.svg')}}">
+
+                        </a>
+                        <a href="" class="mr-5">
+                            <img src="{{asset('assets/frontend/v1/imgfajrul/core-img/facebook.svg')}}">
+
+                        </a>
+                        <a href="" class="mr-5">
+                            <img src="{{asset('assets/frontend/v1/imgfajrul/core-img/youtube.svg')}}">
+
+                        </a>
+                    </div>
+                    <p> Komplek Mutiara Taman Palem Blok C7 No. 20, Jl. Raya Outer Ringroad, RT.7/RW.14,
+                        Cengkareng Timur, Cengkareng</p>
+                    <p>2022, Fajrul Islam</p>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-      <!-- Single Footer Widget -->
-      <div class="col-12 col-sm-6 col-lg-6">
-        <div class="single-footer-widget mb-80">
-          <!-- Widget Title -->
-          <h4 class="widget-title">About Us</h4>
-          <p>Integer vehicula mauris libero, at molestie eros imperdiet sit amet.</p>
-
-          <!-- Copywrite Text -->
-          <div class="copywrite-text mb-30">
-            <p>&copy; Copyright 2018 <a href="#">Colorlib</a>.</p>
-          </div>
-
-          <!-- Social Info -->
-          <div class="footer-social-info">
-            <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i
-                class="fa fa-facebook"></i></a>
-            <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i
-                class="fa fa-twitter"></i></a>
-            <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i
-                class="fa fa-pinterest"></i></a>
-            <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i
-                class="fa fa-instagram"></i></a>
-            <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i
-                class="fa fa-youtube-play"></i></a>
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <div class="row" style="margin-bottom: 30px;">
-
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      <script>
-        document.write(new Date().getFullYear());
-      </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
-        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    </div>
-
-  </div>
 </footer>

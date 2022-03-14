@@ -54,4 +54,5 @@
 
 @include('frontend.tools.blogLatest')
 @include('frontend.tools.eventLatest')
+@include('frontend.tools.newsletter')
 @endsection
