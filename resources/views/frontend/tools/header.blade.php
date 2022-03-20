@@ -6,7 +6,7 @@
         <nav class="classy-navbar justify-content-between" id="uzaNav">
 
           <!-- Logo -->
-          <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+          <a class="nav-brand" href="index.html"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}" alt=""></a>
 
           <!-- Navbar Toggler -->
           <div class="classy-navbar-toggler">
@@ -29,6 +29,7 @@
                 <li class=""><a href="./index.html">Proyek</a></li>
                 <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/blog">Blog</a></li>
                 <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/acara">Acara</a></li>
+                <li class=""><a href="./index.html">Sertifikat</a></li>
               </ul>
 
               <!-- Get A Quote -->
