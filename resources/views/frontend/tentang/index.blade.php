@@ -31,12 +31,9 @@
             <!-- Post Content -->
             <div class="post-content">
               <span class="post-date"><span>08</span> July, 2022</span>
-              <a href="#" class="post-title">Visi Misi</a>
-              <ul>
-                <li>Rizky Putra</li>
-                <li>Novianto Nugroho</li>
-                <li>Annisa Putri</li>
-              </ul>
+              <a href="#" class="post-title">VISI</a>
+              <p>Organisasi ini bertujuan sebagai wadah yang menghimpun seluruh mahasiswa muslim Universitas Gunadarma dalam meningkatkan iman, ilmu dan amal dalam kerangka ukhuwah dan dakwah islamiyah, serta mewujudkan kesejahteraan bersama. 
+</p>
             </div>
           </div>
         </div>
@@ -47,11 +44,12 @@
             <!-- Post Content -->
             <div class="post-content">
               <span class="post-date"><span>08</span> July, 2022</span>
-              <a href="#" class="post-title">Visi Misi</a>
+              <a href="#" class="post-title">MISI</a>
               <ul>
-                <li>Rizky Putra</li>
-                <li>Novianto Nugroho</li>
-                <li>Annisa Putri</li>
+                <li>Mengikat anggota dalam jalinan dakwah dan ukhuwah islamiyah </li>
+                <li>Sebagai sarana yang menampung aspirasi anggota </li>
+                <li>Sebagai lembaga formal kampus untuk mengembangkan moralitas, intelektualitas, dan profesionalitas</li>
+                <li>Sebagai kontrol sosial dan moral kehidupan kampus </li>
               </ul>
             </div>
           </div>
