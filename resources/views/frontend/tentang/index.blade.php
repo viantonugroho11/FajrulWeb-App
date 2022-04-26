@@ -30,9 +30,9 @@
           <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/10.jpg);">
             <!-- Post Content -->
             <div class="post-content">
-              <span class="post-date"><span>08</span> July, 2022</span>
+              {{-- <span class="post-date"><span>08</span> July, 2022</span> --}}
               <a href="#" class="post-title">VISI</a>
-              <p>Organisasi ini bertujuan sebagai wadah yang menghimpun seluruh mahasiswa muslim Universitas Gunadarma dalam meningkatkan iman, ilmu dan amal dalam kerangka ukhuwah dan dakwah islamiyah, serta mewujudkan kesejahteraan bersama. 
+              <p>Organisasi ini bertujuan sebagai wadah yang menghimpun seluruh mahasiswa muslim Universitas Gunadarma dalam meningkatkan iman, ilmu dan amal dalam kerangka ukhuwah dan dakwah islamiyah, serta mewujudkan kesejahteraan bersama.
 </p>
             </div>
           </div>
@@ -43,7 +43,7 @@
           <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/10.jpg);">
             <!-- Post Content -->
             <div class="post-content">
-              <span class="post-date"><span>08</span> July, 2022</span>
+              {{-- <span class="post-date"><span>08git add .</span> July, 2022</span> --}}
               <a href="#" class="post-title">MISI</a>
               <ul>
                 <li>Mengikat anggota dalam jalinan dakwah dan ukhuwah islamiyah </li>
@@ -71,14 +71,14 @@
             <div class="col-12 col-md-6">
               <div class="about-us-content mb-80">
                 <h2>Sejarah</h2>
-                <p> Periode Tahun 1981 s/d 1988. Pada awalnya, Lembaga Dakwah Kampus di Sekolah Tinggi Gunadarma hanya sebagai sebuah perkumpulan Mahasiswa dan Mahasiswi yang aktif mengelola Mushola di Kampusnya, yang saat itu masih berlokasi di Kampus Salemba. Di Kampus Salemba sendiri ada 2 konsentrasi jurusan perkuliahan: 
-1. Sekolah Tinggi Manajemen Informatika Komputer Gunadarma dan 
-2. Sekolah Tinggi Ilmu Ekonomi Gunadarma. 
-Karena rutinnya dalam pengelolaan Mushola menjadi sebuah prestasi tersendiri, akhirnya perkumpulan mahasiswa tersebut mendapat kepercayaan untuk menyelenggarakan Kegiatan Panitia Hari Besar Islam oleh pihak Kampus. Tahun demi tahun kegiatan PHBI ini berlangsung. 
-Tahun 1985-1986 adalah Peletakan Batu Pertama untuk pendirian cabang bangunan Kampus Gunadarma di Margonda Depok, yang otomatis perkumpulan mahasiswa-mahasiswi Muslim yang akrab disebut Rohis (Rohani Islam) harus ikut serta dalam memobilisasi tempat ibadah di Kampus Margonda ini. Sebetulnya antara pengurus Rohis STIE Gunadarma dan STMIK Gunadarma itu berbeda, karena terkait posisi bangunan yang jaraknya cukup jauh, sehingga belum bergabung. Hal ini dikarenakan belum disahkannya kegiatan tersebut sebagai Unit Kegiatan Mahasiswa maka kegiatannya hanya sebatas mengurus Mushola dan penyelenggaraan PHBI. 
-Tahun 1988 Masjid Daarul Ilmi dibangun dan setelah selesai, ini merupakan Masjid terbesar di Gunadarma. Melalui Masjid inilah menjadi sarana menjadi sebuah tempat untuk melakukan koordinasi terkait kegiatan Keislaman. 
-Periode 1998 adalah masa di mana segala konsep yang sebelumnya disiapkan dapat direalisasikan. Dengan menimbang hal-hal sebelumnya, yaitu kontribusi Rohis yang nyata terhadap kampus, serta rutinnya melaksanakan pendelegasian di setiap organisasi kampus, membuat langkah Senat Mahasiswa, dan BEM yang diisi oleh Rohis saat itu mampu berperan dalam peristiwa aksi demo menyuarakan aspirasi ketika Kepemimpinan Presiden Soeharto. 
-Kemudian, pengurus Senat meminta agar Rohis diresmikan menjadi Unit Kegiatan Legal di Kampus Gunadarma. Karena, sebelumnya berstatus tetap legal, tetapi hanya sebatas sebagai perkumpulan saja. Ada ketika hanya ada acara. Setelah acara selesai, kembali pada kegiatan biasa, seperti diskusi, belum terorganisir secara baik. Akhirnya rohis berinisiatif untuk terjun di Senat. 
+                <p> Periode Tahun 1981 s/d 1988. Pada awalnya, Lembaga Dakwah Kampus di Sekolah Tinggi Gunadarma hanya sebagai sebuah perkumpulan Mahasiswa dan Mahasiswi yang aktif mengelola Mushola di Kampusnya, yang saat itu masih berlokasi di Kampus Salemba. Di Kampus Salemba sendiri ada 2 konsentrasi jurusan perkuliahan:
+1. Sekolah Tinggi Manajemen Informatika Komputer Gunadarma dan
+2. Sekolah Tinggi Ilmu Ekonomi Gunadarma.
+Karena rutinnya dalam pengelolaan Mushola menjadi sebuah prestasi tersendiri, akhirnya perkumpulan mahasiswa tersebut mendapat kepercayaan untuk menyelenggarakan Kegiatan Panitia Hari Besar Islam oleh pihak Kampus. Tahun demi tahun kegiatan PHBI ini berlangsung.
+Tahun 1985-1986 adalah Peletakan Batu Pertama untuk pendirian cabang bangunan Kampus Gunadarma di Margonda Depok, yang otomatis perkumpulan mahasiswa-mahasiswi Muslim yang akrab disebut Rohis (Rohani Islam) harus ikut serta dalam memobilisasi tempat ibadah di Kampus Margonda ini. Sebetulnya antara pengurus Rohis STIE Gunadarma dan STMIK Gunadarma itu berbeda, karena terkait posisi bangunan yang jaraknya cukup jauh, sehingga belum bergabung. Hal ini dikarenakan belum disahkannya kegiatan tersebut sebagai Unit Kegiatan Mahasiswa maka kegiatannya hanya sebatas mengurus Mushola dan penyelenggaraan PHBI.
+Tahun 1988 Masjid Daarul Ilmi dibangun dan setelah selesai, ini merupakan Masjid terbesar di Gunadarma. Melalui Masjid inilah menjadi sarana menjadi sebuah tempat untuk melakukan koordinasi terkait kegiatan Keislaman.
+Periode 1998 adalah masa di mana segala konsep yang sebelumnya disiapkan dapat direalisasikan. Dengan menimbang hal-hal sebelumnya, yaitu kontribusi Rohis yang nyata terhadap kampus, serta rutinnya melaksanakan pendelegasian di setiap organisasi kampus, membuat langkah Senat Mahasiswa, dan BEM yang diisi oleh Rohis saat itu mampu berperan dalam peristiwa aksi demo menyuarakan aspirasi ketika Kepemimpinan Presiden Soeharto.
+Kemudian, pengurus Senat meminta agar Rohis diresmikan menjadi Unit Kegiatan Legal di Kampus Gunadarma. Karena, sebelumnya berstatus tetap legal, tetapi hanya sebatas sebagai perkumpulan saja. Ada ketika hanya ada acara. Setelah acara selesai, kembali pada kegiatan biasa, seperti diskusi, belum terorganisir secara baik. Akhirnya rohis berinisiatif untuk terjun di Senat.
 Pada tanggal 28 Desember 1998 Rohis diresmikan menjadi Unit Kegiatan Mahasiswa dengan membawa hal baru, nama baru Fajrul Islam dan adanya sistem. Periode Tahun 1999 s/d 2003 merupakan masa-masa di mana Fajrul Islam yang pengurusnya aktif di berbagai BEM, baik BEM U dan BEM Fakultas, melakukan ekspansi dakwah dengan membentuk Badan Semi Otonom di bawah struktur pengurus BEM, seperti BEM FE terdapat KAESYAR (Kajian Ekonomi Syariah), BEM Psikologi terdapat Psikis (Psikologi Islam), Sastra Islam, dsb
 </p>
                 <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
