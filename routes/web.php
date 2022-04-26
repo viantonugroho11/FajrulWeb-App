@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +53,19 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     //edit profile
     Route::get('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'edit'])->name('admin.profile');
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
+});
+
+
+Route::get('/sitemap', function () {
+    $sitemap = Sitemap::create()
+        ->add(Url::create('/tentang'))
+        ->add(Url::create('/blog'))
+        ->add(Url::create('/acara'))
+        ->add(Url::create('/proyek'));
+
+    $post = Artikel::all();
+    foreach ($post as $post) {
+        $sitemap->add(Url::create("/blog/{$post->slug}"));
+    }
+    $sitemap->writeToFile(public_path('sitemap.xml'));
 });
