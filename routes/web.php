@@ -28,7 +28,7 @@ Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::cl
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home',                                                    [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //login admin
 Route::get('/admin', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'getLogin'])->name('adminlogin');

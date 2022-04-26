@@ -6,7 +6,7 @@
         <nav class="classy-navbar justify-content-between" id="uzaNav">
 
           <!-- Logo -->
-          <a class="nav-brand" href="index.html"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}" alt=""></a>
+          <a class="nav-brand" href="/"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}" alt=""></a>
 
           <!-- Navbar Toggler -->
           <div class="classy-navbar-toggler">
@@ -43,9 +43,9 @@
               </div> --}}
 
               <!-- Search Icon -->
-              <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+              {{-- <div class="search-icon" data-toggle="modal" data-target="#searchModal">
                 <i class="icon_search"></i>
-              </div>
+              </div> --}}
             </div>
             <!-- Nav End -->
 

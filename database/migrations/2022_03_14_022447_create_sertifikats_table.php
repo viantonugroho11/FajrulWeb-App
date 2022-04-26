@@ -14,7 +14,14 @@ class CreateSertifikatsTable extends Migration
     public function up()
     {
         Schema::create('sertifikats', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('user_id')->nullable();
+            $table->string('no_sertifikat');
+            $table->string('nama');
+            $table->string('tahun');
+            $table->string('email');
+            $table->string('acara_id');
+            $table->string('jenis_sertifikat');
             $table->timestamps();
         });
     }
