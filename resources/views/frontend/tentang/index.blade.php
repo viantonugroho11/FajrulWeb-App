@@ -73,17 +73,16 @@
             <div class="col-12 col-md-6">
               <div class="about-us-content mb-80">
                 <h2>Sejarah</h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut
-                  labore et
-                  dolore magna aliqua. Urna id volutpat lacus laoreet non curabitur gravida arcu ac.
-                  Purus
-                  faucibus ornare
-                  suspendisse sed nisi lacus sed viverra. Cursus in hac habitasse platea dictumst.
-                  Tellus
-                  molestie nunc
-                  non
-                  blandit massa enim nec dui nunc.</p>
+                <p> Periode Tahun 1981 s/d 1988. Pada awalnya, Lembaga Dakwah Kampus di Sekolah Tinggi Gunadarma hanya sebagai sebuah perkumpulan Mahasiswa dan Mahasiswi yang aktif mengelola Mushola di Kampusnya, yang saat itu masih berlokasi di Kampus Salemba. Di Kampus Salemba sendiri ada 2 konsentrasi jurusan perkuliahan: 
+1. Sekolah Tinggi Manajemen Informatika Komputer Gunadarma dan 
+2. Sekolah Tinggi Ilmu Ekonomi Gunadarma. 
+Karena rutinnya dalam pengelolaan Mushola menjadi sebuah prestasi tersendiri, akhirnya perkumpulan mahasiswa tersebut mendapat kepercayaan untuk menyelenggarakan Kegiatan Panitia Hari Besar Islam oleh pihak Kampus. Tahun demi tahun kegiatan PHBI ini berlangsung. 
+Tahun 1985-1986 adalah Peletakan Batu Pertama untuk pendirian cabang bangunan Kampus Gunadarma di Margonda Depok, yang otomatis perkumpulan mahasiswa-mahasiswi Muslim yang akrab disebut Rohis (Rohani Islam) harus ikut serta dalam memobilisasi tempat ibadah di Kampus Margonda ini. Sebetulnya antara pengurus Rohis STIE Gunadarma dan STMIK Gunadarma itu berbeda, karena terkait posisi bangunan yang jaraknya cukup jauh, sehingga belum bergabung. Hal ini dikarenakan belum disahkannya kegiatan tersebut sebagai Unit Kegiatan Mahasiswa maka kegiatannya hanya sebatas mengurus Mushola dan penyelenggaraan PHBI. 
+Tahun 1988 Masjid Daarul Ilmi dibangun dan setelah selesai, ini merupakan Masjid terbesar di Gunadarma. Melalui Masjid inilah menjadi sarana menjadi sebuah tempat untuk melakukan koordinasi terkait kegiatan Keislaman. 
+Periode 1998 adalah masa di mana segala konsep yang sebelumnya disiapkan dapat direalisasikan. Dengan menimbang hal-hal sebelumnya, yaitu kontribusi Rohis yang nyata terhadap kampus, serta rutinnya melaksanakan pendelegasian di setiap organisasi kampus, membuat langkah Senat Mahasiswa, dan BEM yang diisi oleh Rohis saat itu mampu berperan dalam peristiwa aksi demo menyuarakan aspirasi ketika Kepemimpinan Presiden Soeharto. 
+Kemudian, pengurus Senat meminta agar Rohis diresmikan menjadi Unit Kegiatan Legal di Kampus Gunadarma. Karena, sebelumnya berstatus tetap legal, tetapi hanya sebatas sebagai perkumpulan saja. Ada ketika hanya ada acara. Setelah acara selesai, kembali pada kegiatan biasa, seperti diskusi, belum terorganisir secara baik. Akhirnya rohis berinisiatif untuk terjun di Senat. 
+Pada tanggal 28 Desember 1998 Rohis diresmikan menjadi Unit Kegiatan Mahasiswa dengan membawa hal baru, nama baru Fajrul Islam dan adanya sistem. Periode Tahun 1999 s/d 2003 merupakan masa-masa di mana Fajrul Islam yang pengurusnya aktif di berbagai BEM, baik BEM U dan BEM Fakultas, melakukan ekspansi dakwah dengan membentuk Badan Semi Otonom di bawah struktur pengurus BEM, seperti BEM FE terdapat KAESYAR (Kajian Ekonomi Syariah), BEM Psikologi terdapat Psikis (Psikologi Islam), Sastra Islam, dsb
+</p>
                 <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
               </div>
             </div>
@@ -102,17 +101,9 @@
             <div class="col-12 col-md-6">
               <div class="about-us-content mb-80">
                 <h2>Periode 2021/2022</h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut
-                  labore et
-                  dolore magna aliqua. Urna id volutpat lacus laoreet non curabitur gravida arcu ac.
-                  Purus
-                  faucibus ornare
-                  suspendisse sed nisi lacus sed viverra. Cursus in hac habitasse platea dictumst.
-                  Tellus
-                  molestie nunc
-                  non
-                  blandit massa enim nec dui nunc.</p>
+                <p> Sehubungan dengan dimulainya tahun akademik baru 2021/2022, UKM Fajrul Islam sebagai lembaga kemahasiswaan bernuansa Islam yang ada di lingkungan Universitas Gunadarma mengadakan Open Recruitment yang merupakan seleksi untuk menjaring sumber daya manusia yang berkualitas dan layak untuk diangkat menjadi anggota ataupun menduduki suatu jabatan tertentu dari organisasi.
+Tujuan kegiatan  ini adalah merekrut mahasiswa yang berkomitmen di jalan dakwah, membangun budaya literasi Islam pada diri  mahasiswa, membentuk karakter mahasiswa yang berakhlakul karimah, membuka kesempatan bagi mahasiswa untuk mengaktualisasikan diri, memaksimalkan potensi yang dimiliki setiap mahasiswa, memberikan manfaat kepada mahasiswa terkait peran organisasi.
+</p>
                 <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
               </div>
             </div>
