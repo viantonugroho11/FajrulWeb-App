@@ -14,7 +14,7 @@
   <title>{!! SEO::generate() !!}</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="{{ asset('assets/frontend/v1/img/core-img/favicon.ico') }}">
+  <link rel="icon" href="{{ asset('assets/frontend/v1/icon/fajrul-islam.ico') }}">
 
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="{{ asset('assets/frontend/v1/style.css') }}">
