@@ -15,12 +15,10 @@
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
           </form>
       </div>
-      <!-- Tempat memberikan info certificate tidak ditemukan -->
-      <h4 class="card-text"><small class="text-muted">Certificate not found</small></p>
-        <!-- End -->
+      <!-- <h4 class="card-text"><small class="text-muted">Certificate not found</small></p> -->
     </div>
     <!-- Tempat pasang kondisi tampil certificate -->
-    <img src="./img/core-img/instagram.svg" class="card-img-bottom w-100">
+    <!-- <img src="./img/core-img/instagram.svg" class="card-img-bottom w-100"> -->
     <!-- Akhir tempatnya -->
   </div>
 </div>
