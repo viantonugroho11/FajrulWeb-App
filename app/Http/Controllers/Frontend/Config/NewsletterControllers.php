@@ -49,10 +49,12 @@ class NewsletterControllers extends Controller
 
     public function __invoke(Request $request)
     {
+        // dd($request->all());
         $url = url()->previous();
         $newsletter = Newsletter::where('email', $request->email)->first();
         if ($newsletter == null) {
             $newsletter = Newsletter::create([
+                'id' => Uuid::uuid4()->toString(),
                 'email' => $request->email,
             ]);
         } else {
