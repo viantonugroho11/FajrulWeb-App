@@ -11,7 +11,7 @@
   <!-- MINIFIED -->
   {!! SEO::generate(true) !!}
   <!-- Title -->
-  <title>Fajrul Islam</title>
+  <title>{!! SEO::generate() !!}</title>
 
   <!-- Favicon -->
   <link rel="icon" href="{{ asset('assets/frontend/v1/img/core-img/favicon.ico') }}">

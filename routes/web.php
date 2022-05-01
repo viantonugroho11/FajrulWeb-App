@@ -3,6 +3,7 @@
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
 
 /*
@@ -21,7 +22,7 @@ use Spatie\Sitemap\Tags\Url;
 // });
 
 Route::get('/', [App\Http\Controllers\Frontend\Landing\LandingControllers::class, 'index'])->name('landing.index');
-Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterControllers::class,'newssave'])->name('landing.newsletter');
+Route::post('/newsletter', [App\Http\Controllers\Frontend\Config\NewsletterControllers::class, 'newssave'])->name('landing.newsletter');
 Route::get('/tentang', [App\Http\Controllers\Frontend\Tentang\TentangControlles::class, 'index'])->name('landing.about');
 Route::get('/acara', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'index'])->name('landing.acara');
 Route::get('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'show'])->name('landing.acara.show');
@@ -31,7 +32,7 @@ Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::cl
 
 Auth::routes();
 
-// Route::get('/home',                                                    [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //login admin
 Route::get('/admin', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'getLogin'])->name('adminlogin');
@@ -68,4 +69,7 @@ Route::get('/sitemap', function () {
         $sitemap->add(Url::create("/blog/{$post->slug}"));
     }
     $sitemap->writeToFile(public_path('sitemap.xml'));
+
+    SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
+    return 'sitemap jadi';
 });
