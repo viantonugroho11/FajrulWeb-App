@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row d-flex justify-content-between">
             <div class="col">
-                <a class="nav-brand my-auto" href="index.html"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}" alt=""></a>
+                <a class="nav-brand my-auto" href="index.html"><img src="{{asset('assets/frontend/v1/imgfajrul/core-img/logo-faris.png')}}"></a>
             </div>
             <div class="col">
                 <div class="nl-content mb-80 my-auto">
