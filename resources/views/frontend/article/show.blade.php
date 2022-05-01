@@ -25,7 +25,6 @@
     <img src="./img/core-img/curve-5.png" alt="">
   </div>
 </div>
-<!-- ***** Breadcrumb Area End ***** -->
 
 <!-- ***** Blog Details Area Start ***** -->
 <section class="blog-details-area section-padding-80">

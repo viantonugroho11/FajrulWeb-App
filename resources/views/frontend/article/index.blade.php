@@ -19,7 +19,6 @@
     </div>
   </div>
 </div>
-
 <!-- ***** Blog Area Start ***** -->
 <div class="uza-blog-area section-padding-80">
   <div class="container">
@@ -50,5 +49,4 @@
     </div>
   </div>
 </div>
-<!-- ***** Blog Area End ***** -->
 @endsection

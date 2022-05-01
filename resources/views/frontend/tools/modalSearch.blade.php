@@ -4,7 +4,6 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <!-- Close Button -->
           <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
           <!-- Form -->
           <form action="index.html" method="post">
