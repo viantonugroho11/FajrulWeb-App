@@ -13,7 +13,7 @@
         <div class="nl-form mb-80">
           <form action="{{ route('landing.newsletter') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="email" name="nl-email" value="" placeholder="Your Email">
+            <input type="email" name="email" value="" placeholder="Your Email">
             <button type="submit">TERHUBUNG!</button>
           </form>
         </div>
