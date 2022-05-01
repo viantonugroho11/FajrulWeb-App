@@ -33,6 +33,11 @@ Route::get('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatCo
 Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'show'])->name('landing.sertifikat.show');
 
 Route::view('/proyek', 'frontend.proyek.index')->name('proyek.index');
+Route::view('/tentang/sejarah','frontend.tentang.sejarah')->name('tentang.sejarah');
+Route::view('/tentang/periode','frontend.tentang.periode')->name('tentang.periode');
+Route::view('/tentang/detail','frontend.tentang.tentang')->name('tentang.detail');
+// Route::view('/tentang/visi-misi','frontend.tentang.visi-misi')->name('tentang.visi-misi');
+// Route::view('/tentang/struktur-organisasi','frontend.tentang.struktur-organisasi')->name('tentang.struktur-organisasi');
 Auth::routes();
 
 // Route::get('/home',[App\Http\Controllers\HomeController::class, 'index'])->name('home');

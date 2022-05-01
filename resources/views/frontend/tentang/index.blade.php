@@ -81,7 +81,7 @@
                 Tahun 1985-1986 adalah Peletakan Batu Pertama untuk pendirian cabang bangunan Kampus Gunadarma di Margonda Depok, yang otomatis perkumpulan mahasiswa-mahasiswi Muslim yang akrab disebut Rohis (Rohani Islam) harus ikut serta dalam memobilisasi tempat ibadah di Kampus Margonda ini.
                 Tahun 1988 Masjid Daarul Ilmi dibangun dan setelah selesai, ini merupakan Masjid terbesar di Gunadarma. Melalui Masjid inilah menjadi sarana menjadi sebuah tempat untuk melakukan koordinasi terkait kegiatan Keislaman. Pada tanggal 28 Desember 1998 Rohis diresmikan menjadi Unit Kegiatan Mahasiswa dengan membawa hal baru, nama baru Fajrul Islam dan adanya sistem.
               </p>
-              <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
+              <a href="{{route('tentang.sejarah')}}" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@
               <p> Sehubungan dengan dimulainya tahun akademik baru 2021/2022, UKM Fajrul Islam sebagai lembaga kemahasiswaan bernuansa Islam yang ada di lingkungan Universitas Gunadarma mengadakan Open Recruitment yang merupakan seleksi untuk menjaring sumber daya manusia yang berkualitas dan layak untuk diangkat menjadi anggota ataupun menduduki suatu jabatan tertentu dari organisasi.
                 Tujuan kegiatan ini adalah merekrut mahasiswa yang berkomitmen di jalan dakwah, membangun budaya literasi Islam pada diri mahasiswa, membentuk karakter mahasiswa yang berakhlakul karimah, membuka kesempatan bagi mahasiswa untuk mengaktualisasikan diri, memaksimalkan potensi yang dimiliki setiap mahasiswa, memberikan manfaat kepada mahasiswa terkait peran organisasi.
               </p>
-              <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
+              <a href="{{route('tentang.periode')}}" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
             </div>
           </div>
           <div class="col-12 col-md-6">

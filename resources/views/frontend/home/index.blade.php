@@ -22,7 +22,7 @@
             keberadaannya resmi di bawah wakil rektor III Universitas Gunadarma. Salah satu tujuan Fajrul Islam sebagai
             lembaga dakwah kampus tidak lain adalah membumikan nilai-nilai Islam di kampus Universitas Gunadarma
             tercinta.</p>
-          <a href="#" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
+          <a href="{{route('tentang.detail')}}" class="btn uza-btn btn-2 mt-4">Lihat selengkapnya</a>
         </div>
       </div>
     </div>
