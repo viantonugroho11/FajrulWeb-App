@@ -29,7 +29,10 @@ Route::get('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers:
 Route::post('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'store'])->name('landing.acara.store');
 Route::get('/blog', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'index'])->name('landing.blog');
 Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'show'])->name('landing.blog.show');
+Route::get('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'index'])->name('landing.sertifikat');
+Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'show'])->name('landing.sertifikat.show');
 
+Route::view('/proyek', 'frontend.proyek.index')->name('proyek.index');
 Auth::routes();
 
 // Route::get('/home',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
