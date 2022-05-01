@@ -39,6 +39,7 @@
             <div class="row justify-content-center">
               <div class="col-12 col-lg-10">
                 <div class="post-content text-center mb-50">
+                  <!-- style="height:31rem !important;" -->
                   <a href="#" class="post-date">{{$artikels->created_at}}</a>
                   <h2>{{$artikels->nama_artikel}}</h2>
                   <h6><span><i class="icon-eye"></i>Artikel ini dibaca sebanyak <b>{{$artikels->viewer->count()}}</b> Kali</span></h6>
@@ -49,9 +50,7 @@
               </div>
               <div class="col-12 col-lg-10">
                 {!!$artikels->isi_artikel!!}
-                <!-- Post Catagories & Post Share -->
                 <div class="d-flex align-items-center justify-content-between">
-                  <!-- Post Catagories -->
                   {{-- <div class="post-catagories">
                       <ul class="d-flex flex-wrap align-items-center">
                         <li><a href="#">Tutorials</a></li>
@@ -81,11 +80,8 @@
                     <h5 class="title">03 Comments</h5>
 
                     <ol>
-                      <!-- Single Comment Area -->
                       <li class="single_comment_area">
-                        <!-- Comment Content -->
                         <div class="comment-content d-flex">
-                          <!-- Comment Author -->
                           <div class="comment-author">
                             <img src="img/bg-img/15.jpg" alt="author">
                           </div>

@@ -45,12 +45,12 @@
 
 
       <div class="col-12 col-lg-4">
-        <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
+        <div style="min-height:31rem !important;" class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
           <!-- Post Content -->
           <div class="post-content">
             <span class="post-date">{{$item->created_at}}</span>
             <a href="{{route('landing.blog.show',$item->slug)}}" class="post-title">{{$item->nama_artikel}}</a>
-            <p>{{Str::limit($item->isi_singkat, 250, '...')}}</p>
+            <p>{{Str::limit($item->isi_singkat, 221, '...')}}</p>
             <a href="{{route('landing.blog.show',$item->slug)}}" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
           </div>
         </div>

@@ -19,12 +19,12 @@
       @foreach ($acara ?? '' as $item)
       <!-- Single Blog Post -->
       <div class="col-12 col-lg-4">
-        <div class="single-blog-post bg-img mb-80" style="background-image: url();">
+        <div style="height:17rem !important; background-image: url();" class="single-blog-post bg-img mb-80">
           <!-- Post Content -->
           <div class="post-content">
             <span class="post-date">{{$item->created_at}}</span>
             <a href="#" class="post-title">{{$item->nama}}</a>
-            <p>{{Str::limit($item->deskripsi_singkat,250,'...')}}</p>
+            <p>{{Str::limit($item->deskripsi_singkat,41,'...')}}</p>
             <a href="#" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
           </div>
         </div>

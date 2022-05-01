@@ -240,7 +240,7 @@ input:focus {
   padding-top: 50px !important; }
 
 .section-padding-80 {
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 80px; }
 
 .section-padding-0-80 {
@@ -1443,6 +1443,7 @@ input:focus {
 
 .single-blog-post {
   position: relative;
+  height: 20rem !important;
   z-index: 1;
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;

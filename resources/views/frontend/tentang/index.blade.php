@@ -45,12 +45,18 @@
           <div class="post-content">
             {{-- <span class="post-date"><span>08git add .</span> July, 2022</span> --}}
             <a href="#" class="post-title">MISI</a>
-            <ul>
-              <li>Mengikat anggota dalam jalinan dakwah dan ukhuwah islamiyah </li>
-              <li>Sebagai sarana yang menampung aspirasi anggota </li>
-              <li>Sebagai lembaga formal kampus untuk mengembangkan moralitas, intelektualitas, dan profesionalitas</li>
-              <li>Sebagai kontrol sosial dan moral kehidupan kampus </li>
-            </ul>
+            <p class="p-0 m-0">
+              1. Mengikat anggota dalam jalinan dakwah dan ukhuwah islamiyah
+            </p>
+            <p class="m-0 p-0">
+              2. Sebagai sarana yang menampung aspirasi anggota
+            </p>
+            <p class="p-0 m-0">
+              3. Sebagai lembaga formal kampus untuk mengembangkan moralitas, intelektualitas, dan profesionalitas
+            </p>
+            <p class="p-0 m-0">
+              4. Sebagai kontrol sosial dan moral kehidupan kampus
+            </p>
           </div>
         </div>
       </div>
@@ -82,9 +88,9 @@
       </div>
 
       <!-- About Background Pattern -->
-      <div class="about-bg-pattern">
+      <!-- <div class="about-bg-pattern">
         <img src="{{ asset('assets/frontend/v1/imgfajrul/core-img/curve-2.png') }}" alt="">
-      </div>
+      </div> -->
     </div>
 
     <div class="uza-about-us-area">
@@ -108,9 +114,9 @@
       </div>
 
       <!-- About Background Pattern -->
-      <div class="about-bg-pattern">
+      <!-- <div class="about-bg-pattern">
         <img src="{{ asset('assets/frontend/v1/imgfajrul/core-img/curve-2.png') }}" alt="">
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

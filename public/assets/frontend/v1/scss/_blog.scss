@@ -17,6 +17,7 @@
 .single-blog-post {
     position: relative;
     z-index: 1;
+    height: 20rem !important;
     @include transition-duration(500ms);
     box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.1);
 
