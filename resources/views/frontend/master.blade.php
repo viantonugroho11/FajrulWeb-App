@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {!! SEO::generate() !!}
 
-    <!-- MINIFIED -->
-   {!! SEO::generate(true) !!}
+  <!-- MINIFIED -->
+  {!! SEO::generate(true) !!}
   <!-- Title -->
   <title>Fajrul Islam</title>
 

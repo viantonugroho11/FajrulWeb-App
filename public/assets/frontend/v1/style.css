@@ -1195,7 +1195,7 @@ input:focus {
   z-index: 1; }
   .uza-about-us-area .about-bg-pattern {
     position: absolute;
-    width: 40%;
+    width: 100%;
     left: 0;
     bottom: 0;
     z-index: -1;
