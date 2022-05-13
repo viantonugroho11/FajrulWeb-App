@@ -22,4 +22,14 @@ class Sertifikat extends Model
         'jenis_sertifikat',
         'file',
     ];
+
+    public function acara()
+    {
+        return $this->belongsTo(Acara::class, 'acara_id');
+    }
+
+    public function getFile()
+    {
+        return storage_path('app/public/sertifikat/' . $this->file);
+    }
 }

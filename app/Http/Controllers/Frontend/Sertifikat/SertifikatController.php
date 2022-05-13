@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Sertifikat;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 
 class SertifikatController extends Controller
@@ -13,7 +14,8 @@ class SertifikatController extends Controller
     }
     public function getSertifikat($id)
     {
-
-        return view('frontend.certificate.sertifikat', compact('id'));
+        $sertif = Sertifikat::where('no_sertifikat', $id)->first();
+        return view('frontend.certificate.show', compact('sertif'));
+        // return view('frontend.certificate.sertifikat', compact('id'));
     }
 }

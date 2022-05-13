@@ -36,6 +36,7 @@ class Artikel extends Model
     }
     public function getGambar()
     {
-        return asset('storage/' . $this->gambar);
+        return storage_path('app/public/artikel/' . $this->gambar);
+        // return asset('storage/app/' . $this->gambar);
     }
 }

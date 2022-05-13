@@ -66,8 +66,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
 
 
-Route::view('/sertifikat/{id}', 'frontend.certificate.index')->name('sertifikat.index');
-
+// Route::view('/sertifikat/{id}', 'frontend.certificate.show')->name('sertifikat.index');
+Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('sertifikat.show');
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/tentang'))
