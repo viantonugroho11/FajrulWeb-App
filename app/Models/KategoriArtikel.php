@@ -11,4 +11,9 @@ class KategoriArtikel extends Model
     use HasFactory, SoftDeletes;
     public $incrementing = false;
     protected $fillable = ['id', 'nama_kategori', 'slug','icon'];
+
+    public function artikel()
+    {
+        return $this->hasMany(Artikel::class, 'kategori_artikel_id');
+    }
 }

@@ -22,6 +22,7 @@ class CreateSertifikatsTable extends Migration
             $table->string('email');
             $table->string('acara_id');
             $table->string('jenis_sertifikat');
+            $table->string('file');
             $table->timestamps();
         });
     }

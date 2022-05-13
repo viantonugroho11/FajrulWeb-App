@@ -19,4 +19,9 @@ class DaftarEvent extends Model
             'kode_unik',
             'status',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo(Acara::class, 'event_id');
+    }
 }
