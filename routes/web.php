@@ -60,6 +60,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 });
 
 
+
+Route::view('/sertifikat/{id}', 'frontend.certificate.index')->name('sertifikat.index');
+
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/tentang'))
@@ -76,3 +79,4 @@ Route::get('/sitemap', function () {
     SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
     return 'sitemap jadi';
 });
+
