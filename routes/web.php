@@ -51,3 +51,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'edit'])->name('admin.profile');
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
 });
+
+
+Route::view('/sertifikat/{id}', 'frontend.certificate.index')->name('sertifikat.index');

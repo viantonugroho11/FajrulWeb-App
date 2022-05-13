@@ -12,6 +12,7 @@ class Sertifikat extends Model
     public $incrementing = false;
     protected $fillable =
     [
+        'id',
         'user_id',
         'no_sertifikat',
         'nama',
@@ -19,5 +20,6 @@ class Sertifikat extends Model
         'email',
         'acara_id',
         'jenis_sertifikat',
+        'file',
     ];
 }
