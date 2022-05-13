@@ -18,6 +18,8 @@
         "maatwebsite/excel": "^3.1",
         "realrashid/sweet-alert": "^4.1",
         "rolandstarke/laravel-thumbnail": "^1.0",
+        "spatie/laravel-analytics": "^3.11",
+        "spatie/laravel-sitemap": "^5.9",
         "yajra/laravel-datatables": "^1.5"
     },
     "require-dev": {

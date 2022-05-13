@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Acara;
 
 use App\Http\Controllers\Controller;
 use App\Models\Acara;
+use App\Models\Artikel;
 use App\Models\DaftarEvent;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class AcaraControllers extends Controller
         // return view('frontend.event.index');
     }
     public function show($id){
-        $event = Acara::find($id);
-        return view('frontend.event.show', compact('event'));
+        $event = Acara::where('slug','=',$id)->first();
+        $artikel = Artikel::limit(3)->orderby('created_at', 'desc')->where('status', '=', '1')->get();
+        return view('frontend.event.show', compact('event','artikel'));
         // return view('frontend.event.show');
     }
     public function store(Request $request, $id){

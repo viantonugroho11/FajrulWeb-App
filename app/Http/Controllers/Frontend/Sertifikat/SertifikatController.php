@@ -9,11 +9,11 @@ class SertifikatController extends Controller
 {
     public function index()
     {
-        return view('frontend.sertifikat.index');
+        return view('frontend.certificate.index');
     }
     public function getSertifikat($id)
     {
-        
-        return view('frontend.sertifikat.sertifikat', compact('id'));
+
+        return view('frontend.certificate.sertifikat', compact('id'));
     }
 }

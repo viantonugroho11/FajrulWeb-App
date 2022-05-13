@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/artesaos/seotools
  */
@@ -18,7 +19,7 @@ return [
             'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => false, // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
-        /*
+        /* 
          * Webmaster tags are always added.
          */
         'webmaster_tags' => [
