@@ -6,20 +6,13 @@
     <div class="card-body">
       <div class="d-flex">
         <h2 class="card-title text-info mr-5">Check Your Certificate</h5>
-          <!-- <div class="search-icon my-auto ml-5" data-toggle="modal" data-target="#searchModal">
-            <i class="icon_search"></i>
-          </div> -->
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('landing.sertifikat.cari')}}">
             @csrf
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input name="id" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
           </form>
       </div>
-      <!-- <h4 class="card-text"><small class="text-muted">Certificate not found</small></p> -->
     </div>
-    <!-- Tempat pasang kondisi tampil certificate -->
-    <!-- <img src="./img/core-img/instagram.svg" class="card-img-bottom w-100"> -->
-    <!-- Akhir tempatnya -->
   </div>
 </div>
 @endsection

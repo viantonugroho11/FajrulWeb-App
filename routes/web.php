@@ -30,7 +30,8 @@ Route::post('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers
 Route::get('/blog', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'index'])->name('landing.blog');
 Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'show'])->name('landing.blog.show');
 Route::get('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'index'])->name('landing.sertifikat');
-Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'show'])->name('landing.sertifikat.show');
+Route::post('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'cari'])->name('landing.sertifikat.cari');
+Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('landing.sertifikat.show');
 
 Route::view('/proyek', 'frontend.proyek.index')->name('proyek.index');
 Route::view('/tentang/sejarah','frontend.tentang.sejarah')->name('tentang.sejarah');
@@ -67,7 +68,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
 
 // Route::view('/sertifikat/{id}', 'frontend.certificate.show')->name('sertifikat.index');
-Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('sertifikat.show');
+// Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('sertifikat.show');
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/tentang'))

@@ -36,7 +36,10 @@ class Artikel extends Model
     }
     public function getGambar()
     {
-        return storage_path('app/public/artikel/' . $this->gambar);
-        // return asset('storage/app/' . $this->gambar);
+        if($this->gambar == null){
+            return asset('assets/frontend/v1/noimage/No-image-available.png');
+        }else{
+            return storage_path('app/public/artikel/' . $this->gambar);
+        }
     }
 }

@@ -38,14 +38,17 @@
         <!-- Akhir tempatnya -->
       </div>
     </div>
+    @if($sertif != null)
     <div class="d-flex">
       <div class="card m-auto">
         <div class="card-body">
-          <img src="{{ asset('assets/frontend/v1/imgfajrul/core-img/instagram.svg') }}" class="card-img-bottom w-100">
+
+          <img src="{{ $sertif->getFile() }}" class="card-img-bottom w-100">
         </div>
         <!-- Tempat pasang kondisi tampil certificate -->
         <!-- Akhir tempatnya -->
       </div>
     </div>
+    @endif
   </div>
 @endsection

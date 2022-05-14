@@ -141,6 +141,17 @@
               <span class="badge badge-info right">Comming Soon</span>
             </a>
           </li>
+          @if(Auth::user()->role_id == 1)
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Add Admin
+              </p>
+              {{-- <span class="badge badge-info right">C</span> --}}
+            </a>
+          </li>
+          @endif
           <li class="nav-item">
             <a href="{{route('adminlogout')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>

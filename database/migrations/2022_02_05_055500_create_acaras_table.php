@@ -27,6 +27,7 @@ class CreateAcarasTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('status_event')->default(0);
             $table->string('harga')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

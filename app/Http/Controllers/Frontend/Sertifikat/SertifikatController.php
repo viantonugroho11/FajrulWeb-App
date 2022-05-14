@@ -18,4 +18,10 @@ class SertifikatController extends Controller
         return view('frontend.certificate.show', compact('sertif'));
         // return view('frontend.certificate.sertifikat', compact('id'));
     }
+    public function cari(Request $request)
+    {
+        $sertif = $request->id;
+        return redirect()->route('landing.sertifikat.show', $sertif);
+    }
+
 }

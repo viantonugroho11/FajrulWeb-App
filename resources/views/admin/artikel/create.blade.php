@@ -74,7 +74,11 @@
                           <option selected="selected" value="">Pilihan</option>
                           <option value="0">Pending</option>
                           <option value="2">Simpan</option>
-                          <option value="1">Publish</option>
+                          @if ('1' == Auth::user()->role_id)
+                            <option value="1">Publish</option>
+                          @else
+                          <option value="1" disabled>Publish</option>
+                            @endif
                           {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach --}}
