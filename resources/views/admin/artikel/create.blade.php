@@ -31,7 +31,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('artikel.store')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="row">
@@ -46,10 +46,10 @@
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
                         <select name="kategori" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
-                            @endforeach
+                          <option selected="selected" value="">Pilihan</option>
+                          @foreach ($kategori as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                          @endforeach
                         </select>
                       </div>
                     </div>
@@ -71,11 +71,15 @@
                         {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Judul Artikel"> --}}
                         <select name="status" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" value="">Pilihan</option>
-                            <option selected="selected" value="0">Pending</option>
-                            <option value="2">Simpan</option>
-                            <option value="1" disabled>Publish</option>
-                            {{-- @foreach ($kategori as $item)
+                          <option selected="selected" value="">Pilihan</option>
+                          <option value="0">Pending</option>
+                          <option value="2">Simpan</option>
+                          @if ('1' == Auth::user()->role_id)
+                            <option value="1">Publish</option>
+                          @else
+                          <option value="1" disabled>Publish</option>
+                            @endif
+                          {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach --}}
                         </select>
@@ -83,21 +87,20 @@
                     </div>
                   </div>
                   <div class="col-12">
-                      {{-- //isisingkat --}}
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Ringkasan</label>
-                            <textarea name="isi_singkat" class="form-control" id="exampleInputEmail1"
-                            placeholder="Isi Artikel"></textarea>
+                    {{-- //isisingkat --}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Ringkasan</label>
+                      <textarea name="isi_singkat" class="form-control" id="exampleInputEmail1" placeholder="Isi Artikel"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Isi Artikel</label>
+                      <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
+                        style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                      @error('detail')
+                        <div class="alert alert-danger mt-2">
+                          {{ $message }}
                         </div>
-                      <div class="form-group">
-                        <label>Isi Artikel</label>
-                        <textarea class="isiArtikel @error('detail') is-invalid @enderror" name="detail"
-                          style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                        @error('detail')
-                          <div class="alert alert-danger mt-2">
-                              {{ $message }}
-                          </div>
-                        @enderror
+                      @enderror
                     </div>
                   </div>
 
@@ -136,5 +139,4 @@
 @section('scriptCss')
   <!-- Summernote -->
   <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.css') }}">
-
 @endsection

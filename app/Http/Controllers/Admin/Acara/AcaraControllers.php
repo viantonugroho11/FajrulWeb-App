@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Acara;
 
 use App\Http\Controllers\Controller;
 use App\Models\Acara;
+use App\Models\DaftarEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -106,8 +107,23 @@ class AcaraControllers extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
+        if ($request->ajax()) {
+            $kategori = DaftarEvent::select('*')->where('event_id',$id);
+            return DataTables::of($kategori)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    //form delete
+                    $formdelete = '<form action="' . route('acara.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    $btn = $formdelete . '
+                        <br/>
+                        ';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         $acara = Acara::find($id);
         return view('admin.acara.show',compact('acara'));
     }
@@ -187,5 +203,36 @@ class AcaraControllers extends Controller
         }else{
             return redirect()->route('acara.index')->with('error','Data gagal dihapus');
         }
+    }
+
+    public function createPeserta($id)
+    {
+        return view('admin.acara.peserta.create',compact('id'));
+    }
+
+    public function storePeserta(Request $request,$id)
+    {
+        $this->validate($request,[
+            'nama' => 'required',
+            'email' => 'required',
+        ]);
+        $acara = Acara::find($id);
+        $peserta = DaftarEvent::create([
+            'id'=>Uuid::uuid4()->toString(),
+            "nama" => $request->nama,
+            "email" => $request->email,
+            "event_id" => $acara->id,
+        ]);
+
+        if($peserta){
+            return redirect()->route('acara.show',$acara->id)->with('success','Data berhasil ditambahkan');
+        }else{
+            return redirect()->route('acara.show',$acara->id)->with('error','Data gagal ditambahkan');
+        }
+    }
+
+    public function createPesertaNotif()
+    {
+        return view('admin.acara.peserta.create_notif');
     }
 }

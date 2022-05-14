@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Sertifikat\SertifikatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware' => ['throttle:none']], function ($router) {
+    //sertifikat api
+    Route::post('/py/certificate/store', [SertifikatController::class, 'store']);
+    Route::post('/py/certificate/update/{id}', [SertifikatController::class, 'update']);
 });

@@ -35,7 +35,6 @@
 
     <!-- Single Welcome Slide -->
     <div class="single-welcome-slide">
-      <!-- Background Curve -->
       <div class="background-curve">
         <img src="./img/core-img/curve-1.png" alt="">
       </div>
@@ -44,7 +43,6 @@
       <div class="welcome-content h-100">
         <div class="container h-100">
           <div class="row h-100 align-items-center">
-            <!-- Welcome Text -->
             <div class="col-12 col-md-6">
               <div class="welcome-text">
                 <h2 data-animation="fadeInUp" data-delay="100ms">Assalamu’alaikum warahmatullah wabarakatuh
@@ -53,7 +51,6 @@
                 <a href="#" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Start Exploring</a>
               </div>
             </div>
-            <!-- Welcome Thumbnail -->
             <div class="col-12 col-md-6">
               <div class="welcome-thumbnail">
                 <img style="width: 20rem;" data-animation="slideInRight" data-delay="400ms" class="ml-auto" src="{{ asset('assets/frontend/v1/imgfajrul/bg-img/fajrul-islam.jpeg') }}" alt="">

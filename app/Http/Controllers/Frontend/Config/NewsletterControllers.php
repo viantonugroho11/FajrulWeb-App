@@ -49,29 +49,16 @@ class NewsletterControllers extends Controller
 
     public function __invoke(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $url = url()->previous();
         $newsletter = Newsletter::where('email', $request->email)->first();
         if ($newsletter == null) {
             $newsletter = Newsletter::create([
+                'id' => Uuid::uuid4()->toString(),
                 'email' => $request->email,
             ]);
-            if (Auth::check() != null) {
-                $newsletter->update([
-                    'user_id' => Auth::user()->id,
-                    'nama' => Auth::user()->nama,
-                ]);
-            }
         } else {
-            $newsletter->update([
-                'email' => $request->email,
-            ]);
-            if (Auth::check() != null) {
-                $newsletter->update([
-                    'user_id' => Auth::user()->id,
-                    'nama' => Auth::user()->nama,
-                ]);
-            }
+            $newsletter->delete();
         }
         if ($newsletter) {
             return redirect($url)->with('success', 'Berhasil menambahkan email');

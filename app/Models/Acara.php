@@ -8,22 +8,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Acara extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     public $incrementing = false;
     protected $fillable = [
-            'id',
-            'nama',
-            'slug',
-            'gambar',
-            'deskripsi',
-            'deskripsi_singkat',
-            'tanggal_kegiatan',
-            'tempat',
-            'batas_pendaftaran',
-            'jumlah_peserta',
-            'status',
-            'status_event',
-            'harga',
+        'id',
+        'nama',
+        'slug',
+        'gambar',
+        'deskripsi',
+        'deskripsi_singkat',
+        'tanggal_kegiatan',
+        'tempat',
+        'batas_pendaftaran',
+        'jumlah_peserta',
+        'status',
+        'status_event',
+        'harga',
+        'link',
     ];
 
     public function getGambar()
@@ -61,11 +62,21 @@ class Acara extends Model
 
     public function getHarga()
     {
-        return 'Rp. '.number_format($this->harga, 0, ',', '.');
+        return 'Rp. ' . number_format($this->harga, 0, ',', '.');
     }
 
     public function peserta()
     {
         return $this->hasMany(DaftarEvent::class, 'event_id');
+    }
+
+    public function getLink()
+    {
+        if($this->batas_pendaftaran > date('Y-m-d', strtotime('now'))) {
+            //acara telah selesai
+            return 'Batas Pendaftaran Telah Berakhir';
+        } else {
+            return '<a href="' . $this->link . '" target="_blank">Link Event</a>';
+        }
     }
 }

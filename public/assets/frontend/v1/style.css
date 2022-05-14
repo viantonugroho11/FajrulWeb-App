@@ -240,7 +240,7 @@ input:focus {
   padding-top: 50px !important; }
 
 .section-padding-80 {
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 80px; }
 
 .section-padding-0-80 {
@@ -1195,7 +1195,7 @@ input:focus {
   z-index: 1; }
   .uza-about-us-area .about-bg-pattern {
     position: absolute;
-    width: 40%;
+    width: 100%;
     left: 0;
     bottom: 0;
     z-index: -1;
@@ -1443,6 +1443,7 @@ input:focus {
 
 .single-blog-post {
   position: relative;
+  height: 20rem !important;
   z-index: 1;
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;

@@ -21,7 +21,11 @@ class ArtikelControllers extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $kategori = Artikel::select('*');
+            if(Auth::user()->is_admin == 3){
+                $kategori = Artikel::select('*')->where('penulis','=',Auth::user()->id);
+            }else{
+                $kategori = Artikel::select('*');
+            }
             return DataTables::of($kategori)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
