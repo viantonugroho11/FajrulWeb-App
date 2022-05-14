@@ -37,7 +37,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="{{route('admin.dashboard')}}" class="nav-link active">
+            <a href="{{route('admin.dashboard')}}" class="nav-link @if (request()->is('admin/dashboard')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -46,7 +46,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('artikel.index')}}" class="nav-link">
+            <a href="{{route('artikel.index')}}" class="nav-link @if (request()->is('admin/artikel*')) active @endif">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Artikel
@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @if (request()->is('admin/kategori*')) active @endif">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Kategori
@@ -80,7 +80,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{route('acara.index')}}" class="nav-link">
+            <a href="{{route('acara.index')}}" class="nav-link @if (request()->is('admin/acara*')) active @endif">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Acara
@@ -94,8 +94,6 @@
               <p>
                 Users
                 <span class="badge badge-info right">Comming Soon</span>
-                {{-- <i class="fas fa-angle-left right"></i> --}}
-                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
           </li>
@@ -141,7 +139,7 @@
               <span class="badge badge-info right">Comming Soon</span>
             </a>
           </li>
-          @if(Auth::user()->role_id == 1)
+          @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-image"></i>

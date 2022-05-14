@@ -56,6 +56,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('/kategori-artikel', App\Http\Controllers\Admin\Kategori\KategoriArtikelControllers::class);
     Route::resource('/artikel', App\Http\Controllers\Admin\Artikel\ArtikelControllers::class);
     Route::resource('/acara', App\Http\Controllers\Admin\Acara\AcaraControllers::class);
+    Route::get('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'createPeserta'])->name('admin.acara.peserta');
+    Route::post('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'storePeserta'])->name('admin.acara.peserta.store');
+
     // Route::resource('/kategori-acara', App\Http\Controllers\Admin\Kategori\KategoriAcaraControllers::class);
     Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
     Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);
@@ -85,4 +88,3 @@ Route::get('/sitemap', function () {
     SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
     return 'sitemap jadi';
 });
-

@@ -24,7 +24,7 @@ class ArtikelControllers extends Controller
             if(Auth::user()->is_admin == 3){
                 $kategori = Artikel::select('*')->where('penulis','=',Auth::user()->id);
             }else{
-            $kategori = Artikel::select('*');
+                $kategori = Artikel::select('*');
             }
             return DataTables::of($kategori)
                 ->addIndexColumn()

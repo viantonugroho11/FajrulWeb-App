@@ -69,4 +69,14 @@ class Acara extends Model
     {
         return $this->hasMany(DaftarEvent::class, 'event_id');
     }
+
+    public function getLink()
+    {
+        if($this->batas_pendaftaran > date('Y-m-d', strtotime('now'))) {
+            //acara telah selesai
+            return 'Batas Pendaftaran Telah Berakhir';
+        } else {
+            return '<a href="' . $this->link . '" target="_blank">Link Event</a>';
+        }
+    }
 }

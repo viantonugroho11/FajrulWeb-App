@@ -11,7 +11,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Blog</a></li>
+              <li class="breadcrumb-item"><a href="{{route('landing.blog')}}">Blog</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{$artikels->slug}}</li>
             </ol>
           </nav>
@@ -39,7 +39,8 @@
               <div class="col-12 col-lg-10">
                 <div class="post-content text-center mb-50">
                   <!-- style="height:31rem !important;" -->
-                  <a href="#" class="post-date">{{$artikels->created_at}}</a>
+                  <a href="#" class="post-date">{{$artikels->getTanggalBuat()}}</a>
+                  <a href="#" class="post-date"><i class="fa fa-user"></i>{{ $artikels->getPenulis->name }}</a>
                   <h2>{{$artikels->nama_artikel}}</h2>
                   <h6><span><i class="icon-eye"></i>Artikel ini dibaca sebanyak <b>{{$artikels->viewer->count()}}</b> Kali</span></h6>
                 </div>

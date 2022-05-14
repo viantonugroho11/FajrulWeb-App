@@ -27,10 +27,13 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                <a href="{{route('admin.acara.peserta',$acara->id)}}" class="btn btn-sm btn-success">Tambah Data</a>
                 <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Import Data</a>
                 <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Export Data</a>
                 <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Template Import</a>
+                </div>
+                <div class="card-header">
+                    <span>EVENT ID : {{$acara->id}}</span>
                 </div>
             </div>
             <div class="card">

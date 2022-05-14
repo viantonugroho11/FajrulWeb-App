@@ -42,4 +42,34 @@ class Artikel extends Model
             return storage_path('app/public/artikel/' . $this->gambar);
         }
     }
+
+    public function getTanggalPublish()
+    {
+        return date('d F Y', strtotime($this->tanggal_publish));
+    }
+
+    public function getStatus()
+    {
+        if ($this->status == 1) {
+            return '<span class="badge badge-success">Aktif</span>';
+        } else {
+            return '<span class="badge badge-danger">Tidak Aktif</span>';
+        }
+    }
+
+    public function getPublish()
+    {
+        $this->hasMany(Admin::class, 'publish','id');
+    }
+
+    public function getPenulis()
+    {
+        // return $this->hasMany(Admin::class, 'penulis','id');
+        return $this->belongsTo(Admin::class, 'penulis','id');
+    }
+
+    public function getTanggalBuat()
+    {
+        return date('d F Y', strtotime($this->created_at));
+    }
 }

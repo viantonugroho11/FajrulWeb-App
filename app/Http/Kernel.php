@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'superadmin' => \App\Http\Middleware\SuperAdmin::class,
         'ketua' => \App\Http\Middleware\Ketua::class,
         'anggota' => \App\Http\Middleware\Anggota::class,
+        'contentwriter' => \App\Http\Middleware\ContentWriter::class,
     ];
 }

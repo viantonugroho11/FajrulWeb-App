@@ -28,7 +28,11 @@
       <div class="col-12 col-lg-4">
         <div class="single-blog-post bg-img mb-80" style="height:31rem !important; background-image: url(./img/bg-img/8.jpg);">
           <div class="post-content">
-            <span class="post-date">{{ $item->created_at }}</span>
+            <span class="post-date">{{ $item->getTanggalBuat() }}</span>
+            {{-- penulis --}}
+            <span class="post-date">
+                {{-- icon user --}}
+                <i class="fa fa-user"></i>{{ $item->getPenulis->name }}</span>
 
             <a href="{{ route('landing.blog.show', $item->slug) }}" class="post-title">{{ Str::limit($item->nama_artikel, 33, '...') }}</a>
             <p>{{ Str::limit($item->isi_singkat, 221, '...') }}</p>

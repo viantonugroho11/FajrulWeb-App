@@ -25,11 +25,11 @@
             <ul id="nav">
               {{-- if request link --}}
               <li class="@if (request()->is('/')) current-item @endif"><a href="/">Home</a></li>
-              <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/tentang">Tentang</a></li>
-              <li class=""><a href="/proyek">Proyek</a></li>
-              <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/blog">Blog</a></li>
-              <li class="@if (request()->is('/tentang')) current-item @endif"><a href="/acara">Acara</a></li>
-              <li class=""><a href="/sertifikat">Sertifikat</a></li>
+              <li class="@if (request()->is('tentang*')) current-item @endif"><a href="/tentang">Tentang</a></li>
+              <li class=""><a href="/proyek">Layanan</a></li>
+              <li class="@if (request()->is('blog*')) current-item @endif"><a href="/blog">Blog</a></li>
+              <li class="@if (request()->is('acara*')) current-item @endif"><a href="/acara">Acara</a></li>
+              <li class="@if (request()->is('sertifikat*')) current-item @endif"><a href="/sertifikat">Sertifikat</a></li>
             </ul>
 
             <!-- Get A Quote -->

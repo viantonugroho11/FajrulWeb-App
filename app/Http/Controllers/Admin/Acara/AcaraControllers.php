@@ -204,4 +204,35 @@ class AcaraControllers extends Controller
             return redirect()->route('acara.index')->with('error','Data gagal dihapus');
         }
     }
+
+    public function createPeserta($id)
+    {
+        return view('admin.acara.peserta.create',compact('id'));
+    }
+
+    public function storePeserta(Request $request,$id)
+    {
+        $this->validate($request,[
+            'nama' => 'required',
+            'email' => 'required',
+        ]);
+        $acara = Acara::find($id);
+        $peserta = DaftarEvent::create([
+            'id'=>Uuid::uuid4()->toString(),
+            "nama" => $request->nama,
+            "email" => $request->email,
+            "event_id" => $acara->id,
+        ]);
+
+        if($peserta){
+            return redirect()->route('acara.show',$acara->id)->with('success','Data berhasil ditambahkan');
+        }else{
+            return redirect()->route('acara.show',$acara->id)->with('error','Data gagal ditambahkan');
+        }
+    }
+
+    public function createPesertaNotif()
+    {
+        return view('admin.acara.peserta.create_notif');
+    }
 }
