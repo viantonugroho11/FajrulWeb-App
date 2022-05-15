@@ -42,8 +42,9 @@
     <div class="d-flex">
       <div class="card m-auto">
         <div class="card-body">
-
-          <img src="{{ $sertif->getFile() }}" class="card-img-bottom w-100">
+            <center>
+                <img src="{{ $sertif->getFile() }}" class="card-img-bottom w-50 center">
+            </center>
         </div>
         <!-- Tempat pasang kondisi tampil certificate -->
         <!-- Akhir tempatnya -->
