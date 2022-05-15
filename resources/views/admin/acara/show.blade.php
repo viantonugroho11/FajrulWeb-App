@@ -53,6 +53,8 @@
                     <tr>
                       <th>Nama</th>
                       <th>Email</th>
+                      <th>No Sertifikat</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -110,6 +112,16 @@
           {
             data: 'email',
             name: 'email'
+          },
+          {
+              data:'getSertifikat',
+              name:'get_sertifikat',
+          },
+          {
+            data: 'action',
+            name: 'action',
+            orderable: false,
+            searchable: false
           },
         ]
       });

@@ -30,6 +30,6 @@ class Sertifikat extends Model
 
     public function getFile()
     {
-        return storage_path('app/public/sertifikat/' . $this->file);
+        return public_path('storage/sertifikat/' . $this->file);
     }
 }

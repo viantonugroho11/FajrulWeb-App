@@ -39,7 +39,7 @@ class Artikel extends Model
         if($this->gambar == null){
             return asset('assets/frontend/v1/noimage/No-image-available.png');
         }else{
-            return storage_path('app/public/artikel/' . $this->gambar);
+            return public_path('storage/artikel/' . $this->gambar);
         }
     }
 

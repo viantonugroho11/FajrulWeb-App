@@ -1,10 +1,13 @@
 <?php
 
 use App\Models\Artikel;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\Environment\Console;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
+use Symfony\Component\Console\Command\Command;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +61,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('/acara', App\Http\Controllers\Admin\Acara\AcaraControllers::class);
     Route::get('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'createPeserta'])->name('admin.acara.peserta');
     Route::post('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'storePeserta'])->name('admin.acara.peserta.store');
-
+    Route::get('/acara/{event_id}/peserta/{email}/show', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'showPesertaSertif'])->name('admin.acara.peserta.sertif');
     // Route::resource('/kategori-acara', App\Http\Controllers\Admin\Kategori\KategoriAcaraControllers::class);
     Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
     Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);
@@ -88,3 +91,10 @@ Route::get('/sitemap', function () {
     SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
     return 'sitemap jadi';
 });
+
+
+
+// Route::get('/linkstorage', function () {
+    // Artisan::call('storage:link');
+//     Command::call('');
+// });

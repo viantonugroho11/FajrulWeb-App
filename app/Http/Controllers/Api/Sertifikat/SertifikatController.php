@@ -63,17 +63,21 @@ class SertifikatController extends Controller
             // 'user_id' => $request->user_id,
             // 'event_id' => $request->event_id,
         ]);
-        if ($request->file('file')) {
-            $image = $request->file('file');
-            // $file->storeAs();
-            // if (!File::exists(public_path('storage/sertifikat/' . $request->event_id))) {
-            //     File::makeDirectory(public_path('storage/sertifikat/' . $request->event_id));
-            // }
-            $image->storeAs('public/sertifikat/', $image->hashName());
+        if($request->file('file')){
+            move_uploaded_file($request->file('file'), public_path('storage/sertifikat/'.$request->file('file')->hashName()));
             $sertifikat->update([
-                'file' => $image->hashName(),
+                'file' => $request->file('file')->store('sertifikat', 'public'),
             ]);
         }
+
+
+        // if ($request->file('file')) {
+        //     $image = $request->file('file');
+        //     $image->storeAs('public/sertifikat/', $image->hashName());
+        //     $sertifikat->update([
+        //         'file' => $image->hashName(),
+        //     ]);
+        // }
 
         return response()->json([
             'message' => 'Sertifikat berhasil diubah',

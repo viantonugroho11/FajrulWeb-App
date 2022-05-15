@@ -24,4 +24,24 @@ class DaftarEvent extends Model
     {
         return $this->belongsTo(Acara::class, 'event_id');
     }
+
+    public function getSertifikat()
+    {
+        $sertif = Sertifikat::where('acara_id', $this->event_id)->where('email', $this->email)->first();
+        if ($sertif) {
+            return $sertif->no_sertifikat;
+        } else {
+            return '-';
+        }
+    }
+
+    public function getSertifikatFile()
+    {
+        $sertif = Sertifikat::where('acara_id', $this->event_id)->where('email', $this->email)->first();
+        if($sertif) {
+            return storage_path('app/public/sertifikat/' . $sertif->file);
+        } else {
+            return '-';
+        }
+    }
 }
