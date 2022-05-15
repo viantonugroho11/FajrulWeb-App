@@ -32,7 +32,7 @@ class Acara extends Model
         if ($this->gambar == null) {
             return asset('assets/frontend/v1/noimage/No-image-available.png');
         } else {
-            return public_path('storage/acara/' . $this->gambar);
+            return asset('storage/acara/' . $this->gambar);
         }
         // return public_path('storage/' . $this->gambar);
     }

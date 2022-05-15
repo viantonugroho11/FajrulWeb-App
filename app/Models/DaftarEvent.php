@@ -39,7 +39,7 @@ class DaftarEvent extends Model
     {
         $sertif = Sertifikat::where('acara_id', $this->event_id)->where('email', $this->email)->first();
         if($sertif) {
-            return storage_path('app/public/sertifikat/' . $sertif->file);
+            return asset('storage/sertifikat/' . $sertif->file);
         } else {
             return '-';
         }

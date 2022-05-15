@@ -22,7 +22,7 @@ class KategoriArtikel extends Model
         if($this->icon == null){
             return asset('assets/frontend/v1/noimage/No-image-available.png');
         }else{
-            return public_path('storage/kategori-artikel/' . $this->icon);
+            return asset('storage/kategori-artikel/' . $this->icon);
         }
     }
 }
