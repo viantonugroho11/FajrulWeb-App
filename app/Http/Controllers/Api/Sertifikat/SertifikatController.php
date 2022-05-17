@@ -64,7 +64,7 @@ class SertifikatController extends Controller
             // 'event_id' => $request->event_id,
         ]);
         if($request->file('file')){
-            move_uploaded_file($request->file('file'), public_path('storage/sertifikat/'.$request->file('file')->hashName()));
+            move_uploaded_file($request->file('file'), asset('storage/sertifikat/'.$request->file('file')->hashName()));
             $sertifikat->update([
                 'file' => $request->file('file')->store('sertifikat', 'public'),
             ]);
