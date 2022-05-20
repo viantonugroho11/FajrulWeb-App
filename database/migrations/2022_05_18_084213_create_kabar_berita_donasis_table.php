@@ -14,7 +14,10 @@ class CreateKabarBeritaDonasisTable extends Migration
     public function up()
     {
         Schema::create('kabar_berita_donasis', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->string('title');
+            $table->string('donasi_id');
+            $table->longText('description');
             $table->timestamps();
         });
     }

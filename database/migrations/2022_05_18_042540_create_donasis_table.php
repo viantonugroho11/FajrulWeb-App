@@ -14,7 +14,17 @@ class CreateDonasisTable extends Migration
     public function up()
     {
         Schema::create('donasis', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->string('kategori_donasi_id');
+            $table->text('short_description');
+            $table->longText('description');
+            $table->string('target_donasi');
+            $table->date('target_tanggal_donasi');
+            $table->string('status')->default(0);
+            $table->string('admin_id');
             $table->timestamps();
         });
     }

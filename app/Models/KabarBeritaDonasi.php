@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class KabarBeritaDonasi extends Model
 {
     use HasFactory;
+
+    protected $incrementing = false;
+    protected $fillable = [
+        'id',
+        'title',
+        'donasi_id',
+        'description',
+    ];
+
+    public function donasi()
+    {
+        return $this->belongsTo(Donasi::class, 'donasi_id');
+    }
 }
