@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\Donasi\Donasi\DonasiControllers;
+use App\Http\Controllers\Admin\Donasi\Kategori\KategoriControllers;
+use App\Http\Controllers\Admin\Kategori\KategoriDonasiControllers;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -66,13 +69,20 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
     Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);
 
-    //manage
+    //manage\
     Route::resource('/manage', App\Http\Controllers\Admin\Auth\AdminControllers::class);
 
 
     //edit profile
     Route::get('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'edit'])->name('admin.profile');
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
+
+
+    Route::prefix('donasi')->name('donasi')->group(function(){
+        Route::resource('/kategori-donasi', KategoriControllers::class);
+        Route::resource('/kampanye', DonasiControllers::class);
+
+    });
 });
 
 
