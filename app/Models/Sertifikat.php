@@ -32,4 +32,9 @@ class Sertifikat extends Model
     {
         return asset('storage/sertifikat/' . $this->file);
     }
+
+    public function uploadFileAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/sertifikat/' . $file->hashName()));
+    }
 }

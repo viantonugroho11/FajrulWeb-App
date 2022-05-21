@@ -74,4 +74,9 @@ class Donasi extends Model
     {
         return strip_tags($this->description);
     }
+
+    public function uploadImageAttribute($value)
+    {
+        move_uploaded_file($value, asset('storage/donasi/' . $value->hashName()));
+    }
 }

@@ -32,4 +32,9 @@ class KategoriDonasi extends Model
     {
         return $this->donasi->count();
     }
+
+    public function uploadImageAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/kategori_donasi/' . $file->hashName()));
+    }
 }

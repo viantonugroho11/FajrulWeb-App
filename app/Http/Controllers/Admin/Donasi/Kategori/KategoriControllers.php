@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\KategoriDonasi;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class KategoriControllers extends Controller
 {
@@ -56,12 +57,20 @@ class KategoriControllers extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required|unique:kategori_donasi,nama_kategori',
+            'nama' => 'required|unique:kategori_donasi,title',
         ]);
 
         $kategori = KategoriDonasi::create([
-            'nama_kategori' => $request->nama_kategori,
+            'title' => $request->nama,
+            'slug' => Str::slug($request->nama),
         ]);
+        if($request->file('icon')){
+            $file = $request->file('icon');
+            move_uploaded_file($file, asset('storage/kategori-donasi/'.$file->hashName()));
+            $kategori->update([
+                'icon' => $file->hashName(),
+            ]);
+        }
 
         return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil ditambahkan');
     }

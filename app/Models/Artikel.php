@@ -72,4 +72,9 @@ class Artikel extends Model
     {
         return date('d F Y', strtotime($this->created_at));
     }
+
+    public function uploadGambarAttribute($value)
+    {
+        move_uploaded_file($value, asset('storage/artikel/' . $value->hashName()));
+    }
 }

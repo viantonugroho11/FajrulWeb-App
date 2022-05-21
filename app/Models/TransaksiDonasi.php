@@ -66,4 +66,10 @@ class TransaksiDonasi extends Model
     {
         return date('d F Y', strtotime($this->created_at));
     }
+
+    public function uploadImageAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/transaksi_donasi/' . $file->hashName()));
+    }
+
 }

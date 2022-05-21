@@ -25,4 +25,9 @@ class KategoriArtikel extends Model
             return asset('storage/kategori-artikel/' . $this->icon);
         }
     }
+
+    public function uploadIconAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/kategori-artikel/' . $file->getClientOriginalName()));
+    }
 }
