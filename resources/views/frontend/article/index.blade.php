@@ -31,8 +31,8 @@
             <span class="post-date">{{ $item->getTanggalBuat() }}</span>
             {{-- penulis --}}
             <span class="post-date">
-                {{-- icon user --}}
-                <i class="fa fa-user"></i>{{ $item->getPenulis->name }}</span>
+              {{-- icon user --}}
+              <i class="fa fa-user"></i>{{ $item->getPenulis->name }}</span>
 
             <a href="{{ route('landing.blog.show', $item->slug) }}" class="post-title">{{ Str::limit($item->nama_artikel, 33, '...') }}</a>
             <p>{{ Str::limit($item->isi_singkat, 221, '...') }}</p>

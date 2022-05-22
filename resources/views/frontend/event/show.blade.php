@@ -47,11 +47,11 @@
                 <img class="mb-50" src="img/bg-img/14.jpg" alt="">
               </div>
               <div class="col-12 col-lg-10">
-                  {!! $event->deskripsi !!}
+                {!! $event->deskripsi !!}
 
                 <!-- Related News Area -->
                 <div class="related-news-area">
-                    @include('frontend.tools.blogLatest')
+                  @include('frontend.tools.blogLatest')
                 </div>
 
                 <button type="submit" class="btn uza-btn btn-3 mt-15">Post Comment</button>
