@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Donasi\Donasi\DonasiControllers;
 use App\Http\Controllers\Admin\Donasi\Kategori\KategoriControllers;
 use App\Http\Controllers\Admin\Kategori\KategoriDonasiControllers;
+use App\Models\Acara;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -100,9 +101,13 @@ Route::get('/sitemap', function () {
     foreach ($post as $post) {
         $sitemap->add(Url::create("/blog/{$post->slug}"));
     }
+    $acara = Acara::all();
+    foreach($acara as $item){
+        $sitemap->add(Url::create("/acara/{$item->slug}"));
+    }
     $sitemap->writeToFile(public_path('sitemap.xml'));
 
-    SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
+    SitemapGenerator::create('https://fajrulislam.or.id')->writeToFile('sitemap.xml');
     return 'sitemap jadi';
 });
 

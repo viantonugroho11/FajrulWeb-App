@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class KategoriDonasi extends Model
 {
@@ -36,5 +37,14 @@ class KategoriDonasi extends Model
     public function uploadImageAttribute($file)
     {
         move_uploaded_file($file, asset('storage/kategori_donasi/' . $file->hashName()));
+    }
+
+    public function deleteImageAttribute()
+    {
+        if ($this->image != null) {
+            $file = asset('storage/kategori_donasi/' . $this->image);
+            // \File::delete($file);
+            File::delete($file);
+        }
     }
 }

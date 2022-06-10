@@ -66,7 +66,7 @@ class KategoriControllers extends Controller
         ]);
         if($request->file('icon')){
             $file = $request->file('icon');
-            move_uploaded_file($file, asset('storage/kategori-donasi/'.$file->hashName()));
+            $kategori->uploadImageAttribute($file);
             $kategori->update([
                 'icon' => $file->hashName(),
             ]);
@@ -83,7 +83,8 @@ class KategoriControllers extends Controller
      */
     public function show($id)
     {
-        //
+        // $kategoridonasi = KategoriDonasi::findOrFail($id);
+        // return view('admin.donasi.kategori.show', compact('kategoridonasi'));
     }
 
     /**
@@ -94,7 +95,8 @@ class KategoriControllers extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategoridonasi = KategoriDonasi::findOrFail($id);
+        return view('admin.donasi.kategori.edit', compact('kategoridonasi'));
     }
 
     /**
@@ -106,7 +108,24 @@ class KategoriControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required|unique:kategori_donasi,title,' . $id,
+        ]);
+
+        $kategoridonasi = KategoriDonasi::findOrFail($id);
+        $kategoridonasi->update([
+            'title' => $request->nama,
+            'slug' => Str::slug($request->nama),
+        ]);
+        if($request->file('icon')){
+            $file = $request->file('icon');
+            $kategoridonasi->uploadImageAttribute($file);
+            $kategoridonasi->update([
+                'icon' => $file->hashName(),
+            ]);
+        }
+
+        return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -117,6 +136,11 @@ class KategoriControllers extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategoridonasi = KategoriDonasi::findOrFail($id);
+        if($kategoridonasi->icon){
+            $kategoridonasi->deleteImageAttribute();
+        }
+        $kategoridonasi->delete();
+        return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil dihapus');
     }
 }
