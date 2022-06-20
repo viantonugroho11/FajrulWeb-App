@@ -29,7 +29,12 @@ class Acara extends Model
 
     public function getGambar()
     {
-        return asset('storage/' . $this->gambar);
+        if ($this->gambar == null) {
+            return asset('assets/frontend/v1/noimage/No-image-available.png');
+        } else {
+            return asset('storage/acara/' . $this->gambar);
+        }
+        // return public_path('storage/' . $this->gambar);
     }
 
     public function getTanggalKegiatan()

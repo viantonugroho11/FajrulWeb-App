@@ -54,6 +54,7 @@
               </p>
             </a>
           </li>
+          @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
           <li class="nav-item">
             <a href="#" class="nav-link @if (request()->is('admin/kategori*')) active @endif">
               <i class="nav-icon fas fa-copy"></i>
@@ -79,6 +80,7 @@
               </li>
             </ul>
           </li>
+          @endif
           <li class="nav-item">
             <a href="{{route('acara.index')}}" class="nav-link @if (request()->is('admin/acara*')) active @endif">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -141,10 +143,10 @@
           </li>
           @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('manage.index')}}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Add Admin
+                Manage Admin
               </p>
               {{-- <span class="badge badge-info right">C</span> --}}
             </a>

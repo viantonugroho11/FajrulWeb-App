@@ -30,6 +30,11 @@ class Sertifikat extends Model
 
     public function getFile()
     {
-        return storage_path('app/public/sertifikat/' . $this->file);
+        return asset('storage/sertifikat/' . $this->file);
+    }
+
+    public function uploadFileAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/sertifikat/' . $file->hashName()));
     }
 }

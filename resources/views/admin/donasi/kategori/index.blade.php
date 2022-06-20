@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Peserta</h1>
+            <h1>Data Kategori Donasi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Peserta</li>
+              <li class="breadcrumb-item active">Data Kategori Donasi</li>
             </ol>
           </div>
         </div>
@@ -27,18 +27,12 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                <a href="{{route('admin.acara.peserta',$acara->id)}}" class="btn btn-sm btn-success">Tambah Data</a>
-                <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Import Data</a>
-                <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Export Data</a>
-                <a href="{{route('acara.create')}}" class="btn btn-sm btn-success">Template Import</a>
-                </div>
-                <div class="card-header">
-                    <span>EVENT ID : {{$acara->id}}</span>
+                <a href="{{route('kategori-artikel.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                 </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Data Acara</h3>
+                <h3 class="card-title">Data Kategori</h3>
                 {{-- <br/> --}}
                 {{-- <a href="{{route('DataPura.create')}}" class="btn btn-sm btn-success">Tambah Data</a> --}}
               </div>
@@ -51,12 +45,42 @@
                 <table id="example1" class="table table-bordered data-table">
                   <thead>
                     <tr>
+                      {{-- <th>No</th> --}}
                       <th>Nama</th>
-                      <th>Email</th>
-                      <th>No Sertifikat</th>
+                      <th>Slug</th>
+                      {{-- <th>Icon</th> --}}
+                      {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
                   </thead>
+                  {{-- <tbody>
+                    @php
+                        $i=1;
+                    @endphp
+                    @forelse ($datapura as $row)
+                    <tr>
+                      <td>{{$i++}}</td>
+
+                      <td>{{$row->nama_pura}}</td>
+                      <td>{{$row->jenis_nama}}</td>
+                      <td>{{$row->kondisi_nama}}</td>
+                      <td>{{$row->status_tanah_nama}}</td>
+                      <td>{{$row->provinsi_nama}}</td>
+                      <td>{{$row->kota_nama}}</td>
+                      <td>
+                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapura.destroy', $row->id) }}" method="POST">
+                            <a href="{{ route('datapura.edit', $row->id) }}" class="btn btn-sm btn-success">Edit</a>
+
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
+                      </td>
+                    </tr>
+                    @empty
+
+                    @endforelse
+                  </tbody> --}}
                   <tfoot>
                   </tfoot>
                 </table>
@@ -79,6 +103,20 @@
 @endsection
 
 @section('scriptJs')
+  {{-- <script src="{{asset('asset/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script> --}}
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <script>
@@ -102,21 +140,21 @@
         language: {
           processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
         },
-        ajax: "{{ route('acara.show',$acara->id) }}",
+        ajax: "{{ route('kategori-donasi.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama',
-            name: 'nama'
+            data: 'nama_kategori',
+            name: 'nama_kategori'
           },
           {
-            data: 'email',
-            name: 'email'
+            data: 'slug',
+            name: 'slug'
           },
-          {
-              data:'getSertifikat',
-              name:'get_sertifikat',
-          },
+        //   {
+        //     data: 'icon',
+        //     name: 'icon'
+        //   },
           {
             data: 'action',
             name: 'action',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Acara;
 use App\Http\Controllers\Controller;
 use App\Models\Acara;
 use App\Models\DaftarEvent;
+use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -97,7 +98,7 @@ class AcaraControllers extends Controller
         if ($acara) {
             return redirect()->route('acara.index')->with('success', 'Data berhasil diubah');
         } else {
-            return redirect()->route('acara.index')->with('error', 'Data gagal diubah');
+            return redirect()->route('acara.index')->with('error', 'Data gagal di Simpan');
         }
     }
 
@@ -115,13 +116,18 @@ class AcaraControllers extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     //form delete
-                    $formdelete = '<form action="' . route('acara.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
-                    $btn = $formdelete . '
+                    // $formdelete = '<form action="' . route('acara.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    $fromshow = '<a href="' . route('admin.acara.peserta.sertif', [$row->event_id,$row->email]) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
+                    $btn = $fromshow . '
                         <br/>
                         ';
                     return $btn;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('getSertifikat', function ($row) {
+                    $sertifikat = $row->getSertifikat();
+                    return $sertifikat;
+                })
+                ->rawColumns(['action','getSertifikat'])
                 ->make(true);
         }
         $acara = Acara::find($id);
@@ -228,6 +234,18 @@ class AcaraControllers extends Controller
             return redirect()->route('acara.show',$acara->id)->with('success','Data berhasil ditambahkan');
         }else{
             return redirect()->route('acara.show',$acara->id)->with('error','Data gagal ditambahkan');
+        }
+    }
+
+    public function showPesertaSertif($eventid,$email)
+    {
+        $sertifikat = Sertifikat::where('acara_id',$eventid)->where('email',$email)->first();
+        $dafpeserta = DaftarEvent::where('event_id',$eventid)->where('email',$email)->first();
+        if ($sertifikat) {
+            return view('admin.acara.peserta.sertif',compact('sertifikat','dafpeserta'));
+            // return view('admin.acara.peserta.sertif',compact('sertifikat'));
+        } else {
+            return redirect()->route('acara.show',$eventid)->with('error','Data tidak ditemukan');
         }
     }
 

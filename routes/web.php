@@ -1,10 +1,17 @@
 <?php
 
+use App\Http\Controllers\Admin\Donasi\Donasi\DonasiControllers;
+use App\Http\Controllers\Admin\Donasi\Kategori\KategoriControllers;
+use App\Http\Controllers\Admin\Kategori\KategoriDonasiControllers;
+use App\Models\Acara;
 use App\Models\Artikel;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\Environment\Console;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
+use Symfony\Component\Console\Command\Command;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,14 +65,25 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('/acara', App\Http\Controllers\Admin\Acara\AcaraControllers::class);
     Route::get('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'createPeserta'])->name('admin.acara.peserta');
     Route::post('/acara/{id}/peserta', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'storePeserta'])->name('admin.acara.peserta.store');
-
+    Route::get('/acara/{event_id}/peserta/{email}/show', [App\Http\Controllers\Admin\Acara\AcaraControllers::class, 'showPesertaSertif'])->name('admin.acara.peserta.sertif');
     // Route::resource('/kategori-acara', App\Http\Controllers\Admin\Kategori\KategoriAcaraControllers::class);
     Route::resource('/divisi', App\Http\Controllers\Admin\Divisi\DivisiControllers::class);
     Route::resource('/proker', App\Http\Controllers\Admin\Proker\ProkerControllers::class);
 
+    //manage\
+    Route::resource('/manage', App\Http\Controllers\Admin\Auth\AdminControllers::class);
+
+
     //edit profile
     Route::get('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'edit'])->name('admin.profile');
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
+
+
+    Route::prefix('donasi')->name('donasi')->group(function(){
+        Route::resource('/kategori-donasi', KategoriControllers::class);
+        Route::resource('/kampanye', DonasiControllers::class);
+
+    });
 });
 
 
@@ -83,8 +101,19 @@ Route::get('/sitemap', function () {
     foreach ($post as $post) {
         $sitemap->add(Url::create("/blog/{$post->slug}"));
     }
-    $sitemap->writeToFile(public_path('sitemap.xml'));
+    $acara = Acara::all();
+    foreach($acara as $item){
+        $sitemap->add(Url::create("/acara/{$item->slug}"));
+    }
+    $sitemap->writeToFile(public_path('mappingsite.xml'));
 
-    SitemapGenerator::create('https://fajrulislam.or.id/')->writeToFile('sitemap.xml');
+    SitemapGenerator::create('https://fajrulislam.or.id')->writeToFile('mappingsite.xml');
     return 'sitemap jadi';
 });
+
+
+
+// Route::get('/linkstorage', function () {
+    // Artisan::call('storage:link');
+//     Command::call('');
+// });

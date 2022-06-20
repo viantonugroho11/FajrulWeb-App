@@ -16,4 +16,18 @@ class KategoriArtikel extends Model
     {
         return $this->hasMany(Artikel::class, 'kategori_artikel_id');
     }
+
+    public function getIcon()
+    {
+        if($this->icon == null){
+            return asset('assets/frontend/v1/noimage/No-image-available.png');
+        }else{
+            return asset('storage/kategori-artikel/' . $this->icon);
+        }
+    }
+
+    public function uploadIconAttribute($file)
+    {
+        move_uploaded_file($file, asset('storage/kategori-artikel/' . $file->getClientOriginalName()));
+    }
 }

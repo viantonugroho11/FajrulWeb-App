@@ -22,7 +22,7 @@
               <div class="col-6">
                 <p>
                 <h6 class="card-title text-info mr-5">Event</h6>
-                <h6 class="card-title text-info mr-5">{{ $sertif->acara()->nama }}</h6>
+                <h6 class="card-title text-info mr-5">{{ $sertif->acara->nama }}</h6>
                 </p>
                 <p>
                 <h6 class="card-title text-info mr-5">Serial</h6>
@@ -42,8 +42,9 @@
     <div class="d-flex">
       <div class="card m-auto">
         <div class="card-body">
-
-          <img src="{{ $sertif->getFile() }}" class="card-img-bottom w-100">
+            <center>
+                <img src="{{ $sertif->getFile() }}" class="card-img-bottom w-50 center">
+            </center>
         </div>
         <!-- Tempat pasang kondisi tampil certificate -->
         <!-- Akhir tempatnya -->

@@ -12,6 +12,6 @@ class PesertaImport implements ToCollection
     */
     public function collection(Collection $collection)
     {
-        //
+        
     }
 }

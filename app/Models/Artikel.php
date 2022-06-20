@@ -39,7 +39,7 @@ class Artikel extends Model
         if($this->gambar == null){
             return asset('assets/frontend/v1/noimage/No-image-available.png');
         }else{
-            return storage_path('app/public/artikel/' . $this->gambar);
+            return public_path('storage/artikel/' . $this->gambar);
         }
     }
 
@@ -71,5 +71,10 @@ class Artikel extends Model
     public function getTanggalBuat()
     {
         return date('d F Y', strtotime($this->created_at));
+    }
+
+    public function uploadGambarAttribute($value)
+    {
+        move_uploaded_file($value, asset('storage/artikel/' . $value->hashName()));
     }
 }
