@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Artikel;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use App\Models\KategoriArtikel;
+use App\Traits\HasImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
@@ -13,6 +14,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ArtikelControllers extends Controller
 {
+    use HasImage;
     /**
      * Display a listing of the resource.
      *
@@ -86,15 +88,20 @@ class ArtikelControllers extends Controller
             "penulis"=>Auth::user()->id,
             "status"=>$request->status,
         ]);
-        if($request->file('foto')!=null){
+
+        $image = $this->uploadImageAsset($request, 'storage/artikel/','foto');
+        $artikel->update([
+            'gambar'=>$image
+        ]);
+        // if($request->file('foto')!=null){
             //simpan icon storage
-            $image = $request->file('foto');
-            $image->storeAs('public/artikel/', $image->hashName());
+        //     $image = $request->file('foto');
+        //     $image->storeAs('storage/artikel/', $image->hashName());
             //simpan icon database
-            $artikel->update([
-                'gambar'=>$image->hashName()
-            ]);
-        }
+        //     $artikel->update([
+        //         'gambar'=>$image->hashName()
+        //     ]);
+        // }
         if ($artikel) {
             return redirect()->route('artikel.index')->withSuccess('Data berhasil ditambahkan');
         }else{

@@ -105,9 +105,9 @@ Route::get('/sitemap', function () {
     foreach($acara as $item){
         $sitemap->add(Url::create("/acara/{$item->slug}"));
     }
-    $sitemap->writeToFile(public_path('sitemap.xml'));
+    $sitemap->writeToFile(public_path('mappingsite.xml'));
 
-    SitemapGenerator::create('https://fajrulislam.or.id')->writeToFile('sitemap.xml');
+    SitemapGenerator::create('https://fajrulislam.or.id')->writeToFile('mappingsite.xml');
     return 'sitemap jadi';
 });
 
