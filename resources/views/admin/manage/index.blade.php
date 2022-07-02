@@ -49,6 +49,7 @@
                       <th>Nama</th>
                       <th>Slug</th>
                       <th>Role</th>
+                      <th>Last Update</th>
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
@@ -167,6 +168,10 @@
                 return 'Tidak ada';
               }
             }
+          },
+          {
+            data: 'updated_at',
+            name: 'updated_at'
           },
           {
             data: 'action',
