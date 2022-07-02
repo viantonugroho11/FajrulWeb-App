@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Anggota
+class Editor
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Anggota
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role_id == 3) {
+        if (auth()->user()->role_id == 5) {
             return $next($request);
         }
     }

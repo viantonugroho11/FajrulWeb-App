@@ -60,6 +60,7 @@
                       @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 1)
                         <option value="3">Anggota</option>
                         <option value="4">Content Writer</option>
+                        <option value="5">Editor</option>
                       @endif
                     </select>
                   </div>

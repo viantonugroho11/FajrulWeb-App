@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Acara;
 use App\Models\DaftarEvent;
 use App\Models\Sertifikat;
+use App\Traits\HasImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -14,6 +15,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AcaraControllers extends Controller
 {
+    use HasImage;
     /**
      * Display a listing of the resource.
      *
@@ -80,21 +82,26 @@ class AcaraControllers extends Controller
             "batas_pendaftaran"=>$request->bts_pedaftaran,
             "jumlah_peserta"=>$request->bts_peserta,
             "status"=>$request->status,
-            "status_event"=>$request->status_acara,
+            // "status_event"=>$request->status_acara,
             "deskripsi_singkat"=>$request->deskripsi,
             "deskripsi"=>$request->detail,
             "tempat"=>$request->tempat,
             "gambar"=>"null",
+            "link"=>$request->link,
         ]);
-        if($request->file('gambar')!=null){
-            //simpan icon storage
-            $image = $request->file('gambar');
-            $image->storeAs('public/acara/', $image->hashName());
-            //simpan icon database
-            $acara->update([
-                'gambar'=>$image->hashName()
-            ]);
-        }
+        $image = $this->uploadImageAsset($request, 'storage/acara/', 'gambar');
+        $acara->update([
+            'gambar'=>$image->hashName()
+        ]);
+        // if($request->file('gambar')!=null){
+        //     //simpan icon storage
+        //     $image = $request->file('gambar');
+        //     $image->storeAs('public/acara/', $image->hashName());
+        //     //simpan icon database
+        //     $acara->update([
+        //         'gambar'=>$image->hashName()
+        //     ]);
+        // }
         if ($acara) {
             return redirect()->route('acara.index')->with('success', 'Data berhasil diubah');
         } else {

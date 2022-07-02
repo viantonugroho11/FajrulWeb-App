@@ -20,15 +20,21 @@ class ArtikelControllers extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Content Writer == 4
+    //Anggota == 3
+    //Editor == 5
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            if(Auth::user()->is_admin == 3){
+            if(Auth::user()->is_admin == 3 || Auth::user()->is_admin == 4){
                 $kategori = Artikel::select('*')->where('penulis','=',Auth::user()->id);
             }else{
                 $kategori = Artikel::select('*');
             }
-            return DataTables::of($kategori)
+            if(Auth::user()->is_admin == 3 || Auth::user()->is_admin == 4)
+            {
+                return DataTables::of($kategori)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     //form delete
@@ -45,6 +51,25 @@ class ArtikelControllers extends Controller
                 })
                 ->rawColumns(['action'])
                 ->make(true);
+            }else{
+                return DataTables::of($kategori)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    //form delete
+                    $formdelete = '<form action="' . route('artikel.destroy', $row->id) . '" method="POST">' . csrf_field() . method_field("DELETE") . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah anda yakin ingin menghapus data ini?\')"><i class="fa fa-trash"></i> Hapus</button></form>';
+                    //form edit
+                    $formedit = '<a href="' . route('artikel.edit', $row->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>';
+                    //form detail
+                    $formdetail = '<a href="' . route('artikel.show', $row->id) . '" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>';
+                    $btn = $formedit . '
+                        <br/>
+                        ' . $formdelete . ''
+                        . $formdetail . '';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+            }
         }
         return view('admin.artikel.index');
     }
@@ -90,9 +115,12 @@ class ArtikelControllers extends Controller
         ]);
 
         $image = $this->uploadImageAsset($request, 'storage/artikel/','foto');
-        $artikel->update([
-            'gambar'=>$image
-        ]);
+        // dd($image);
+        if($image) {
+            $artikel->update([
+                'gambar'=>$image
+            ]);
+        }
         // if($request->file('foto')!=null){
             //simpan icon storage
         //     $image = $request->file('foto');

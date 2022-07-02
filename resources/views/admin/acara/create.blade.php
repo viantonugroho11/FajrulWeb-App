@@ -57,10 +57,10 @@
                         <label for="exampleInputEmail1">Batas Peserta</label>
                         <input name="bts_peserta" type="number" class="form-control" placeholder="Jumlah Peserta">
                       </div>
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label for="exampleInputEmail1">Tempat</label>
                         <input name="tempat" type="text" class="form-control" placeholder="Tempat Acara">
-                      </div>
+                      </div> --}}
                     </div>
                     <div class="col-6">
                       <div class="form-group">
@@ -90,24 +90,26 @@
                         </select>
                       </div>
                       <div class="form-group">
+                        <label for="exampleInputEmail1">Tempat</label>
+                        <input name="tempat" type="text" class="form-control" placeholder="Tempat Acara">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Link</label>
+                        <input name="link" type="url" class="form-control" placeholder="Isi Link Gform">
+                      </div>
+                      {{-- <div class="form-group">
                         <label for="exampleInputEmail1">Status Acara</label>
-                        {{-- <input name="nama" type="text" class="form-control" id="exampleInputEmail1"
-                          placeholder="Judul Artikel"> --}}
                         <select name="status_acara" class="form-control select2" style="width: 100%;">
                           <option selected="selected" value="">Pilihan</option>
                           <option selected="selected" value="0">Wajib Donasi</option>
                           <option value="2">Tidak Wajib Donasi</option>
-                          {{-- <option value="1" disabled>Publish</option> --}}
-                          {{-- @foreach ($kategori as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach --}}
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Harga</label>
                         <input name="harga" type="text" class="form-control" id="exampleInputEmail1"
                           placeholder="Harga">
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                   <div class="col-12">

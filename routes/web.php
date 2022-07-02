@@ -79,9 +79,12 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
 
 
-    Route::prefix('donasi')->name('donasi')->group(function(){
+    Route::prefix('donasi')->name('admin.donasi.')->group(function(){
         Route::resource('/kategori-donasi', KategoriControllers::class);
         Route::resource('/kampanye', DonasiControllers::class);
+
+    });
+    Route::prefix('shop')->name('admin.shop.')->group(function(){
 
     });
 });
@@ -90,6 +93,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
 // Route::view('/sertifikat/{id}', 'frontend.certificate.show')->name('sertifikat.index');
 // Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('sertifikat.show');
+
+// require __DIR__.'/routes/sitemap.php';
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/tentang'))

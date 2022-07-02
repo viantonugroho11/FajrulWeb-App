@@ -72,7 +72,7 @@ class KategoriControllers extends Controller
             ]);
         }
 
-        return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('admin.donasi.kategori-donasi.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -125,7 +125,7 @@ class KategoriControllers extends Controller
             ]);
         }
 
-        return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil diubah');
+        return redirect()->route('admin.donasi.kategori-donasi.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -141,6 +141,10 @@ class KategoriControllers extends Controller
             $kategoridonasi->deleteImageAttribute();
         }
         $kategoridonasi->delete();
-        return redirect()->route('donasi.kategori-donasi.index')->with('success', 'Data berhasil dihapus');
+        if($kategoridonasi){
+            return redirect()->route('admin.donasi.kategori-donasi.index')->with('success', 'Data berhasil dihapus');
+        }else{
+            return redirect()->route('admin.donasi.kategori-donasi.index')->with('error', 'Data gagal dihapus');
+        }
     }
 }
