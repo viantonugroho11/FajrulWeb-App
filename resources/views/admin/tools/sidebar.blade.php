@@ -72,10 +72,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.donasi.kategori-donasi.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Donasi</p>
-                  <span class="badge badge-info right">Comming Soon</span>
+                  {{-- <span class="badge badge-info right">Comming Soon</span> --}}
                 </a>
               </li>
             </ul>

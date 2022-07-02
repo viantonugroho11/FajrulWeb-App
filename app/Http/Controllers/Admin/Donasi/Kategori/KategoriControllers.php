@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin\Donasi\Kategori;
 
 use App\Http\Controllers\Controller;
 use App\Models\KategoriDonasi;
+use App\Traits\HasImage;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
 
 class KategoriControllers extends Controller
 {
+    use HasImage;
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +68,8 @@ class KategoriControllers extends Controller
         ]);
         if($request->file('icon')){
             $file = $request->file('icon');
-            $kategori->uploadImageAttribute($file);
+            $file = $this->uploadImageAsset($request, 'storage/kategori_donasi/','icon');
+            // $kategori->uploadImageAttribute($file);
             $kategori->update([
                 'icon' => $file->hashName(),
             ]);
