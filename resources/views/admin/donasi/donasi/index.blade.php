@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Kategori Artikel</h1>
+            <h1>Data Donasi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Kategori Artikel</li>
+              <li class="breadcrumb-item active">Data Donasi</li>
             </ol>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                <a href="{{route('kategori-artikel.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                <a href="{{route('admin.donasi.kampaye.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                 </div>
             </div>
             <div class="card">
@@ -47,7 +47,10 @@
                     <tr>
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
-                      <th>Slug</th>
+                      <th>Target Donasi</th>
+                      <th>Target Tanggal</th>
+                      <th>Total Dana</th>
+                      <th>Foto</th>
                       {{-- <th>Icon</th> --}}
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
@@ -140,7 +143,7 @@
         language: {
           processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
         },
-        ajax: "{{ route('kategori-artikel.index') }}",
+        ajax: "{{ route('admin.donasi.kampaye.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
