@@ -12,7 +12,6 @@ trait HasImage
             $image = $request->file('image');
             $image->storeAs($path, $image->hashName());
         }
-
         return $image;
     }
 
