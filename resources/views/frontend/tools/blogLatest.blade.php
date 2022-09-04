@@ -52,10 +52,11 @@
             {{-- penulis --}}
             <span class="post-date">
                 {{-- icon user --}}
+                <a href="{{route('landing.blog.author', $item->getPenulis->name )}}">
                 <i class="fa fa-user"></i>{{ $item->getPenulis->name }}
+                </a>
             </span>
             <a href="{{route('landing.blog.show',$item->slug)}}" class="post-title">{{$item->nama_artikel}}</a>
-            <p>{{Str::limit($item->isi_singkat, 221, '...')}}</p>
             <a href="{{route('landing.blog.show',$item->slug)}}" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
           </div>
         </div>

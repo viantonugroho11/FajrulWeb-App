@@ -34,8 +34,11 @@ Route::get('/tentang', [App\Http\Controllers\Frontend\Tentang\TentangControlles:
 Route::get('/acara', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'index'])->name('landing.acara');
 Route::get('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'show'])->name('landing.acara.show');
 Route::post('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'store'])->name('landing.acara.store');
+
 Route::get('/blog', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'index'])->name('landing.blog');
 Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'show'])->name('landing.blog.show');
+Route::get('/author/{id}',[App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'author'])->name('landing.blog.author');
+
 Route::get('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'index'])->name('landing.sertifikat');
 Route::post('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'cari'])->name('landing.sertifikat.cari');
 Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('landing.sertifikat.show');
