@@ -25,7 +25,7 @@ class BlogControllers extends Controller
 
     public function show($id)
     {
-        $artikels=Artikel::where('slug',$id)->first();
+        $artikels=Artikel::where('slug',$id)->with('getPenulis')->first();
         SEOMeta::setTitle($artikels->nama_artikel);
         SEOMeta::setDescription($artikels->isi_singkat);
         SEOMeta::addMeta('article:published_time', $artikels->tanggal_publish, 'property');
