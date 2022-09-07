@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $kabarberita = KabarBeritaDonasi::orderBy('created_at', 'desc')->take(3)->get();
+        $kabarberita = KabarBeritaDonasi::orderBy('created_at', 'desc')->with('donasi')->take(3)->get();
         $kampanye = Donasi::orderBy('created_at', 'desc')->with('kategori_donasi')->take(3)->get();
         $sumtransaksi = TransaksiDonasi::sum('nominal');
         $counttransaksi = TransaksiDonasi::count();

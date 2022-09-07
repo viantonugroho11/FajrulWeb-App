@@ -120,7 +120,11 @@ Route::get('/sitemap', function () {
 });
 
 
-Route::view('/donasi','donasi.kampanye.index')->name('donasi.index');
+// Route::view('/donasi','donasi.kampanye.index')->name('donasi.index');
+
+Route::prefix('donasi')->name('donasi.')->group(function () {
+    Route::get('/',[App\Http\Controllers\Donasi\Home\HomeController::class, 'index'])->name('index');
+});
 
 // Route::get('/linkstorage', function () {
     // Artisan::call('storage:link');
