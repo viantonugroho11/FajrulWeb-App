@@ -31,6 +31,7 @@
             <span class="post-date">{{ $item->getTanggalBuat() }}</span>
             {{-- penulis --}}
             <span class="post-date">
+
                 {{-- icon user --}}
                 <a href="{{route('landing.blog.author', $item->getPenulis->name )}}">
                 <i class="fa fa-user"></i>{{ $item->getPenulis->name }}
