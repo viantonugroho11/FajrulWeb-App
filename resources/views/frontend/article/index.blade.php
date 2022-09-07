@@ -31,13 +31,17 @@
             <span class="post-date">{{ $item->getTanggalBuat() }}</span>
             {{-- penulis --}}
             <span class="post-date">
-              {{-- icon user --}}
-              <i class="fa fa-user"></i>{{ $item->getPenulis->name }}</span>
 
+                {{-- icon user --}}
+                <a href="{{route('landing.blog.author', $item->getPenulis->name )}}">
+                <i class="fa fa-user"></i>{{ $item->getPenulis->name }}
+                </a>
+                {{-- <i class="fa fa-user"></i>{{ $item->getPenulis->name }}</span> --}}
+            </span>
             <a href="{{ route('landing.blog.show', $item->slug) }}" class="post-title">{{ Str::limit($item->nama_artikel, 33, '...') }}</a>
             <p>{{ Str::limit($item->isi_singkat, 221, '...') }}</p>
             <a href="{{ route('landing.blog.show', $item->slug) }}" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
-            <span><i class="icon-eye"></i>Melihat Artikel: {{$item->viewer->count()}}</span>
+            <span>Melihat Artikel: {{$item->viewer->count()}}</span>
           </div>
         </div>
       </div>

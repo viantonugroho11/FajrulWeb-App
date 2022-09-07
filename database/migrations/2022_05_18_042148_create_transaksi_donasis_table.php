@@ -17,7 +17,7 @@ class CreateTransaksiDonasisTable extends Migration
             $table->uuid('id');
             $table->string('nama_donatur');
             $table->string('email_donatur');
-            $table->string('nomor_telepon_donatur');
+            $table->string('nomor_telepon_donatur')->nullable();
             $table->string('nominal');
             $table->string('kode_verif')->nullable();
             $table->string('donasi_id');

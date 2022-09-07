@@ -34,8 +34,11 @@ Route::get('/tentang', [App\Http\Controllers\Frontend\Tentang\TentangControlles:
 Route::get('/acara', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'index'])->name('landing.acara');
 Route::get('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'show'])->name('landing.acara.show');
 Route::post('/acara/{id}', [App\Http\Controllers\Frontend\Acara\AcaraControllers::class, 'store'])->name('landing.acara.store');
+
 Route::get('/blog', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'index'])->name('landing.blog');
 Route::get('/blog/{id}', [App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'show'])->name('landing.blog.show');
+Route::get('/author/{id}',[App\Http\Controllers\Frontend\Blog\BlogControllers::class, 'author'])->name('landing.blog.author');
+
 Route::get('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'index'])->name('landing.sertifikat');
 Route::post('/sertifikat', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'cari'])->name('landing.sertifikat.cari');
 Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('landing.sertifikat.show');
@@ -79,9 +82,12 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::post('/profile', [App\Http\Controllers\Admin\Auth\AuthControllers::class, 'update'])->name('admin.profile.update');
 
 
-    Route::prefix('donasi')->name('donasi')->group(function(){
+    Route::prefix('donasi')->name('admin.donasi.')->group(function(){
         Route::resource('/kategori-donasi', KategoriControllers::class);
         Route::resource('/kampanye', DonasiControllers::class);
+
+    });
+    Route::prefix('shop')->name('admin.shop.')->group(function(){
 
     });
 });
@@ -90,6 +96,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
 // Route::view('/sertifikat/{id}', 'frontend.certificate.show')->name('sertifikat.index');
 // Route::get('/sertifikat/{id}', [App\Http\Controllers\Frontend\Sertifikat\SertifikatController::class, 'getSertifikat'])->name('sertifikat.show');
+
+// require __DIR__.'/routes/sitemap.php';
 Route::get('/sitemap', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/tentang'))
@@ -112,6 +120,11 @@ Route::get('/sitemap', function () {
 });
 
 
+// Route::view('/donasi','donasi.kampanye.index')->name('donasi.index');
+
+Route::prefix('donasi')->name('donasi.')->group(function () {
+    Route::get('/',[App\Http\Controllers\Donasi\Home\HomeController::class, 'index'])->name('index');
+});
 
 // Route::get('/linkstorage', function () {
     // Artisan::call('storage:link');

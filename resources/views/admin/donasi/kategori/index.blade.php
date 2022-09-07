@@ -27,12 +27,12 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                <a href="{{route('kategori-artikel.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                <a href="{{route('admin.donasi.kategori-donasi.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                 </div>
             </div>
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Data Kategori</h3>
+                <h3 class="card-title">Data Kategori Donasi</h3>
                 {{-- <br/> --}}
                 {{-- <a href="{{route('DataPura.create')}}" class="btn btn-sm btn-success">Tambah Data</a> --}}
               </div>
@@ -47,7 +47,7 @@
                     <tr>
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
-                      <th>Slug</th>
+                      <th>Jumlah Kampaye</th>
                       {{-- <th>Icon</th> --}}
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
@@ -140,16 +140,16 @@
         language: {
           processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
         },
-        ajax: "{{ route('kategori-donasi.index') }}",
+        ajax: "{{ route('admin.donasi.kategori-donasi.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama_kategori',
-            name: 'nama_kategori'
+            data: 'title',
+            name: 'title'
           },
           {
-            data: 'slug',
-            name: 'slug'
+            data: 'getDonasiCountAttribute',
+            name: 'getDonasiCountAttribute'
           },
         //   {
         //     data: 'icon',

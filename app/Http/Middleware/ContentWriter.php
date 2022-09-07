@@ -16,7 +16,7 @@ class ContentWriter
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->is_admin == 3) {
+        if (auth()->user()->role_id == 4) {
             return $next($request);
         }
     }

@@ -16,7 +16,7 @@ class Anggota
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->is_admin == 3) {
+        if (auth()->user()->role_id == 3) {
             return $next($request);
         }
     }

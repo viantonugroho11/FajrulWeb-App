@@ -40,7 +40,8 @@
                 <div class="post-content text-center mb-50">
                   <!-- style="height:31rem !important;" -->
                   <a href="#" class="post-date">{{$artikels->getTanggalBuat()}}</a>
-                  <a href="#" class="post-date"><i class="fa fa-user"></i>{{ $artikels->getPenulis->name }}</a>
+                  <a href="{{route('landing.blog.author', $artikels->getPenulis->name )}}" class="post-date">
+                    <i class="fa fa-user"></i>{{ $artikels->getPenulis->name }}</a>
                   <h2>{{$artikels->nama_artikel}}</h2>
                   <h6><span><i class="icon-eye"></i>Artikel ini dibaca sebanyak <b>{{$artikels->viewer->count()}}</b> Kali</span></h6>
                 </div>
