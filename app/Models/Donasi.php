@@ -25,10 +25,10 @@ class Donasi extends Model
         "admin_id",
     ];
 
-    // public function kategori_donasi()
-    // {
-    //     return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id');
-    // }
+    public function kategori_donasi()
+    {
+        return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id');
+    }
 
     public function transaksi_donasi()
     {
