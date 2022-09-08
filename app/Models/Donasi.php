@@ -27,12 +27,12 @@ class Donasi extends Model
 
     public function kategori_donasi()
     {
-        return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id');
+        return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id','id');
     }
 
     public function transaksi_donasi()
     {
-        return $this->hasMany(TransaksiDonasi::class, 'donasi_id','id');
+        return $this->hasMany(TransaksiDonasi::class, 'id','donasi_id');
     }
 
     public function kabar_berita_donasi()
