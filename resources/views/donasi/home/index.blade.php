@@ -111,7 +111,7 @@
                             </div>
                             <h4 class="mb-3">{{$index->title}}</h4>
                             <p>{{$index->short_description}}</p>
-                            <a class="text-uppercase" href="#">Baca Lengkap<i class="bi bi-arrow-right"></i></a>
+                            <a class="text-uppercase" href="{{route('donasi.kampanye.show',$index->slug)}}">Baca Lengkap<i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

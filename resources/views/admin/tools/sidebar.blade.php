@@ -54,6 +54,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('admin.donasi.kampanye.index')}}" class="nav-link @if (request()->is('admin/artikel*')) active @endif">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Kampanye
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
           @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
           <li class="nav-item">
             <a href="#" class="nav-link @if (request()->is('admin/kategori*')) active @endif">
@@ -100,14 +109,14 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            {{-- <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Regional
                 <i class="fas fa-angle-left right"></i>
               </p>
-            </a>
-            <ul class="nav nav-treeview">
+            </a> --}}
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('proker.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -120,7 +129,7 @@
                   <p>Divisi</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-header">Setting</li>
           <li class="nav-item">

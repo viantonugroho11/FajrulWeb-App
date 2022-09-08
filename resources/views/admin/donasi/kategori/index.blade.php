@@ -47,40 +47,12 @@
                     <tr>
                       {{-- <th>No</th> --}}
                       <th>Nama</th>
-                      <th>Jumlah Kampaye</th>
+                      {{-- <th>Jumlah Kampaye</th> --}}
                       {{-- <th>Icon</th> --}}
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
                   </thead>
-                  {{-- <tbody>
-                    @php
-                        $i=1;
-                    @endphp
-                    @forelse ($datapura as $row)
-                    <tr>
-                      <td>{{$i++}}</td>
-
-                      <td>{{$row->nama_pura}}</td>
-                      <td>{{$row->jenis_nama}}</td>
-                      <td>{{$row->kondisi_nama}}</td>
-                      <td>{{$row->status_tanah_nama}}</td>
-                      <td>{{$row->provinsi_nama}}</td>
-                      <td>{{$row->kota_nama}}</td>
-                      <td>
-                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('datapura.destroy', $row->id) }}" method="POST">
-                            <a href="{{ route('datapura.edit', $row->id) }}" class="btn btn-sm btn-success">Edit</a>
-
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
-                      </td>
-                    </tr>
-                    @empty
-
-                    @endforelse
-                  </tbody> --}}
                   <tfoot>
                   </tfoot>
                 </table>
@@ -103,20 +75,6 @@
 @endsection
 
 @section('scriptJs')
-  {{-- <script src="{{asset('asset/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{asset('asset/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script> --}}
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <script>
@@ -142,19 +100,10 @@
         },
         ajax: "{{ route('admin.donasi.kategori-donasi.index') }}",
         columns: [
-          // {data: 'id', name: 'id'},
           {
             data: 'title',
             name: 'title'
           },
-          {
-            data: 'getDonasiCountAttribute',
-            name: 'getDonasiCountAttribute'
-          },
-        //   {
-        //     data: 'icon',
-        //     name: 'icon'
-        //   },
           {
             data: 'action',
             name: 'action',
@@ -165,23 +114,6 @@
       });
 
     });
-  </script>
-  <script>
-    //   $(function () {
-    //     $("#example1").DataTable({
-    //       "responsive": true, "lengthChange": false, "autoWidth": false,
-    //       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    //     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    //     $('#example2').DataTable({
-    //       "paging": true,
-    //       "lengthChange": false,
-    //       "searching": false,
-    //       "ordering": true,
-    //       "info": true,
-    //       "autoWidth": false,
-    //       "responsive": true,
-    //     });
-    //   });
   </script>
 @endsection
 

@@ -31,7 +31,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('admin.donasi.kampaye.store')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('admin.donasi.kampanye.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="row">
@@ -47,10 +47,15 @@
                           placeholder="Judul Artikel"> --}}
                         <select name="kategori" class="form-control select2" style="width: 100%;">
                           <option selected="selected" value="">Pilihan</option>
-                          @foreach ($kategori as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                          @foreach ($kategoridonasi as $item)
+                            <option value="{{ $item->id }}">{{ $item->title }}</option>
                           @endforeach
                         </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputFile">Target Donasi</label>
+                        <input name="target" type="number" class="form-control" id="exampleInputEmail1"
+                          placeholder="Target Donasi">
                       </div>
                     </div>
                     <div class="col-6">
@@ -77,17 +82,12 @@
                           @if ('1' == Auth::user()->role_id)
                             <option value="1">Publish</option>
                           @else
-                          <option value="1" disabled>Publish</option>
-                            @endif
+                            <option value="1" disabled>Publish</option>
+                          @endif
                           {{-- @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach --}}
                         </select>
-                      </div>
-                       <div class="form-group">
-                        <label for="exampleInputFile">Target Donasi</label>
-                        <input name="target" type="number" class="form-control" id="exampleInputEmail1"
-                          placeholder="Target Donasi">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputFile">Target Tanggal Donasi</label>
@@ -133,9 +133,9 @@
     </section>
     <!-- /.content -->
   </div>
-  @endsection
+@endsection
 
-  @section('scriptJs')
+@section('scriptJs')
   <!-- Summernote -->
   <script src="{{ asset('assets/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
   <script>
