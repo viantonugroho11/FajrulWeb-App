@@ -15,7 +15,7 @@ class KampanyeController extends Controller
 
             $kampanye = Donasi::where('status', 1)->orderBy('created_at', 'DESC')->paginate(9);
         }else{
-            $kampanye = Donasi::where('status', 1)->wherehas('kategori_donasis', function($query) use ($request){
+            $kampanye = Donasi::where('status', 1)->wherehas('kategori_donasi', function($query) use ($request){
                 $query->where('slug', $request->category);
             })->orderBy('created_at', 'DESC')->paginate(9);
         }
