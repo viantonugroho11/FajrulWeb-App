@@ -44,7 +44,7 @@ class KategoriDonasi extends Model
     // {
     //     if ($this->image != null) {
     //         $file = asset('storage/kategori_donasi/' . $this->image);
-    //         // \File::delete($file);
+            // \File::delete($file);
     //         File::delete($file);
     //     }
     // }

@@ -25,19 +25,19 @@ class Donasi extends Model
         "admin_id",
     ];
 
-    public function kategori_donasi()
-    {
-        return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id');
-    }
+    // public function kategori_donasi()
+    // {
+    //     return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id');
+    // }
 
     public function transaksi_donasi()
     {
-        return $this->hasMany(TransaksiDonasi::class, 'donasi_id');
+        return $this->hasMany(TransaksiDonasi::class, 'donasi_id','id');
     }
 
     public function kabar_berita_donasi()
     {
-        return $this->hasMany(KabarBeritaDonasi::class, 'donasi_id');
+        return $this->hasMany(KabarBeritaDonasi::class, 'donasi_id','id');
     }
 
     public function admin()

@@ -19,6 +19,6 @@ class KabarBeritaDonasi extends Model
 
     public function donasi()
     {
-        return $this->belongsTo(Donasi::class, 'donasi_id');
+        return $this->belongsTo(Donasi::class, 'id','donasi_id');
     }
 }
