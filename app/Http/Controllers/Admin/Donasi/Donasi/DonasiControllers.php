@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Donasi;
 use App\Models\KategoriDonasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class DonasiControllers extends Controller
 {
@@ -32,6 +35,7 @@ class DonasiControllers extends Controller
                     return $btn;
                 })
                 ->rawColumns(['action'])
+                // ->rawColumns(['action'])
                 ->make(true);
         }
 
@@ -57,7 +61,42 @@ class DonasiControllers extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'title' => 'required',
+            'kategori' => 'required',
+            'target' => 'required',
+            'target_tanggal' => 'required',
+            'status' => 'required',
+            'isi_singkat' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $donasi = Donasi::create([
+            'id'=>Uuid::uuid4(),
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'kategori_donasi_id' => $request->kategori,
+            'target_donasi' => $request->target,
+            'target_tanggal_donasi' => $request->target_tanggal,
+            'status' => $request->status,
+            'short_description' => $request->isi_singkat,
+            'description' => $request->detail,
+            'admin_id' => Auth::user()->id,
+        ]);
+        if ($request->file('foto')) {
+            $file = $request->file('foto');
+            $file = $this->uploadImageAsset($request, 'storage/donasi/', 'goto');
+            $donasi->update([
+                'image' => $file->hashName(),
+            ]);
+        }
+        if($donasi){
+            //redirect dengan pesan sukses
+            return redirect()->route('admin.donasi.kampanye.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        }else{
+            //redirect dengan pesan error
+            return redirect()->route('admin.donasi.kampanye.index')->with(['error' => 'Data Gagal Disimpan!']);
+        }
     }
 
     /**

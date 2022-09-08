@@ -27,7 +27,7 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                <a href="{{route('admin.donasi.kampaye.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                <a href="{{route('admin.donasi.kampanye.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                 </div>
             </div>
             <div class="card">
@@ -49,10 +49,7 @@
                       <th>Nama</th>
                       <th>Target Donasi</th>
                       <th>Target Tanggal</th>
-                      <th>Total Dana</th>
                       <th>Foto</th>
-                      {{-- <th>Icon</th> --}}
-                      {{-- <th>Status</th> --}}
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -143,21 +140,28 @@
         language: {
           processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
         },
-        ajax: "{{ route('admin.donasi.kampaye.index') }}",
+        ajax: "{{ route('admin.donasi.kampanye.index') }}",
         columns: [
           // {data: 'id', name: 'id'},
           {
-            data: 'nama_kategori',
-            name: 'nama_kategori'
+            data: 'title',
+            name: 'title'
           },
           {
-            data: 'slug',
-            name: 'slug'
+            data: 'target_donasi',
+            name: 'target_donasi'
           },
-        //   {
-        //     data: 'icon',
-        //     name: 'icon'
-        //   },
+          {
+            data: 'target_tanggal_donasi',
+            name: 'target_tanggal_donasi'
+          },
+            {
+                data: 'foto',
+                name: 'foto',
+                render: function(data, type, full, meta) {
+                    return "<img src={{ URL::to('/') }}/images/" + data + " width='70' class='img-thumbnail' />";
+                },
+            },
           {
             data: 'action',
             name: 'action',

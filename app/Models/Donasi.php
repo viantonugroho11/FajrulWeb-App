@@ -12,17 +12,17 @@ class Donasi extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'id',
-        'title',
-        'slug',
-        'image',
-        'kategori_donasi_id',
-        'short_description',
-        'description',
-        'target_donasi',
-        'target_tanggal_donasi',
-        'status',
-        'admin_id',
+        "id",
+        "title",
+        "slug",
+        "image",
+        "kategori_donasi_id",
+        "short_description",
+        "description",
+        "target_donasi",
+        "target_tanggal_donasi",
+        "status",
+        "admin_id",
     ];
 
     public function kategori_donasi()
@@ -50,20 +50,20 @@ class Donasi extends Model
         return 'slug';
     }
 
-    public function getImageAttribute()
-    {
-        return asset('storage/donasi/' . $this->image);
-    }
+    // public function getImageAttribute()
+    // {
+    //     return asset('storage/donasi/' . $this->image);
+    // }
 
-    public function getTargetTanggalDonasiAttribute()
-    {
-        return date('d F Y', strtotime($this->target_tanggal_donasi));
-    }
+    // public function getTargetTanggalDonasiAttribute()
+    // {
+    //     return date('d F Y', strtotime($this->target_tanggal_donasi));
+    // }
 
-    public function getTargetDonasiAttribute()
-    {
-        return number_format($this->target_target_donasi, 0, ',', '.');
-    }
+    // public function getTargetDonasiAttribute()
+    // {
+    //     return number_format($this->target_target_donasi, 0, ',', '.');
+    // }
 
     public function getSumDonasiAttribute()
     {

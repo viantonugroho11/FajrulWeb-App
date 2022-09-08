@@ -10,6 +10,7 @@ class KategoriDonasi extends Model
 {
     use HasFactory;
 
+    // protected $table = 'kategori_donasis';
     protected $fillable = [
         'title', 'slug', 'image',
     ];
@@ -24,27 +25,27 @@ class KategoriDonasi extends Model
         return 'slug';
     }
 
-    public function getImageAttribute()
-    {
-        return asset('storage/kategori_donasi/' . $this->image);
-    }
+    // public function getImageAttribute()
+    // {
+    //     return asset('storage/kategori_donasi/' . $this->image);
+    // }
 
     public function getDonasiCountAttribute()
     {
         return $this->donasi->count();
     }
 
-    public function uploadImageAttribute($file)
-    {
-        move_uploaded_file($file, asset('storage/kategori_donasi/' . $file->hashName()));
-    }
+    // public function uploadImageAttribute($file)
+    // {
+    //     move_uploaded_file($file, asset('storage/kategori_donasi/' . $file->hashName()));
+    // }
 
-    public function deleteImageAttribute()
-    {
-        if ($this->image != null) {
-            $file = asset('storage/kategori_donasi/' . $this->image);
-            // \File::delete($file);
-            File::delete($file);
-        }
-    }
+    // public function deleteImageAttribute()
+    // {
+    //     if ($this->image != null) {
+    //         $file = asset('storage/kategori_donasi/' . $this->image);
+    //         // \File::delete($file);
+    //         File::delete($file);
+    //     }
+    // }
 }

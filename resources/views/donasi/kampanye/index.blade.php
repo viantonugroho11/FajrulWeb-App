@@ -9,10 +9,10 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Pilih Kategori</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option value="0">Semua Kategori</option>
-                                <option value="1">Kategori 1</option>
-                                <option value="2">Kategori 2</option>
-                                <option value="3">Kategori 3</option>
+                                <option value="">Semua Kategori</option>
+                                @foreach ($kategori as $index)
+                                <option value="{{$index->slug}}">{{$index->title}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

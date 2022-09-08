@@ -86,6 +86,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
         Route::resource('/kategori-donasi', KategoriControllers::class);
         Route::resource('/kampanye', DonasiControllers::class);
 
+
     });
     Route::prefix('shop')->name('admin.shop.')->group(function(){
 
@@ -124,6 +125,8 @@ Route::get('/sitemap', function () {
 
 Route::prefix('donasi')->name('donasi.')->group(function () {
     Route::get('/',[App\Http\Controllers\Donasi\Home\HomeController::class, 'index'])->name('index');
+    Route::get('/kampanye',[App\Http\Controllers\Donasi\Kampanye\KampanyeController::class, 'index'])->name('kampanye.index');
+    Route::get('/kampanye/{slug}',[App\Http\Controllers\Donasi\Kampanye\KampanyeController::class, 'show'])->name('kampanye.show');
 });
 
 // Route::get('/linkstorage', function () {
