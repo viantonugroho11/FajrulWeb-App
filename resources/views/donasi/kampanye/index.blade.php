@@ -36,15 +36,17 @@
                   <div class="p-4">
                     <div class="d-flex mb-3">
                       <small class="me-3">
-                        <i class="far fa-money-bill-alt text-primary me-2"></i>$100
+                        <i class="far fa-money-bill-alt text-primary me-2"></i>{{$index->getTargetDonasiAttributeModel()}}
                       </small>
-                      <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+                      <small><i class="far fa-calendar-alt text-primary me-2"></i>{{$index->getTanggalTargetDonasiAttribute()}}</small>
                     </div>
                     <h4 class="mb-3">{{ $index->title }}</h4>
                     <p>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">25%</div>
+                      <div class="progress-bar" role="progressbar" style="width: {{$index->getPercentageAttribute()}}%;" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="{{$index->getPercentageAttribute()}}">
+                        {{$index->getSumDonasiAttribute()}}
+                    </div>
                     </div>
                     </p>
                     <p>{{ Str::limit(strip_tags($index->description), 20) }}</p>

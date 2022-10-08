@@ -49,18 +49,18 @@ class TransaksiDonasi extends Model
         return 'Rp ' . number_format($this->nominal, 0, ',', '.');
     }
 
-    public function getStatusAttribute()
-    {
-        if ($this->status == 1) {
-            return 'Pending';
-        } elseif ($this->status == 2) {
-            return 'Dikonfirmasi';
-        } elseif ($this->status == 3) {
-            return 'Ditolak';
-        } else {
-            return '-';
-        }
-    }
+    // public function getStatusAttribute()
+    // {
+    //     if ($this->status == 1) {
+    //         return 'Pending';
+    //     } elseif ($this->status == 2) {
+    //         return 'Dikonfirmasi';
+    //     } elseif ($this->status == 3) {
+    //         return 'Ditolak';
+    //     } else {
+    //         return '-';
+    //     }
+    // }
 
     public function getTanggalDonasiAttribute()
     {

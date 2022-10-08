@@ -14,13 +14,18 @@ class KampanyeController extends Controller
     public function index(Request $request)
     {
         if($request->category ==null){
-            $kampanye = Donasi::orderBy('created_at', 'DESC')->paginate(9);
+            $kampanye = Donasi::with('transaksi_donasi')->orderBy('created_at', 'DESC')->paginate(9);
         }else{
-            $kampanye = Donasi::where('status', 1)->wherehas('kategori_donasi', function($query) use ($request){
+            $kampanye = Donasi::where('status', 1)->with('transaksi_donasi')->wherehas('kategori_donasi', function($query) use ($request){
                 $query->where('slug', $request->category);
             })->orderBy('created_at', 'DESC')->paginate(9);
         }
-        //     dd($kampanye);
+        // $donasi = Donasi::->get();
+        // foreach($donasi as $d){
+        //     $d->total_donasi = $d->transaksi_donasi->where('status',1)->sum('nominal');
+        // }
+        // dd($d->total_donasi);
+
         $kategori = KategoriDonasi::all();
         return view('donasi.kampanye.index', compact('kampanye', 'kategori'));
     }

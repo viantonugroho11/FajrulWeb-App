@@ -65,29 +65,30 @@
             <div class="section-title section-title-sm position-relative pb-3 mb-4">
               <h3 class="mb-0">Transaksi</h3>
             </div>
-            <form>
+            <form action="{{ route('donasi.transaksi.store', $kampanye->id) }}" method="POST">
+                @csrf
               <div class="row g-3">
                 <div class="col-12 col-sm-6">
-                  <input type="text" class="form-control bg-white border-0" placeholder="Your Name"
+                  <input name="nama" type="text" class="form-control bg-white border-0" placeholder="Your Name"
                     style="height: 55px;">
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="email" class="form-control bg-white border-0" placeholder="Your Email"
+                  <input name="email" type="email" class="form-control bg-white border-0" placeholder="Your Email"
                     style="height: 55px;">
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control bg-white border-0" placeholder="Your Phone (Optional)"
+                  <input name="nohp" type="text" class="form-control bg-white border-0" placeholder="Your Phone (Optional)"
                     style="height: 55px;">
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control bg-white border-0" placeholder="Nominal"
+                  <input name="nominal" type="text" class="form-control bg-white border-0" placeholder="Nominal"
                     style="height: 55px;">
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control bg-white border-0" rows="5" placeholder="Doa"></textarea>
+                  <textarea name="doa" class="form-control bg-white border-0" rows="5" placeholder="Doa"></textarea>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary w-100 py-3" type="submit">Leave Your Comment</button>
+                  <button class="btn btn-primary w-100 py-3" type="submit">Sumbit</button>
                 </div>
               </div>
             </form>
@@ -129,7 +130,7 @@
         <h1 class="display-4 text-white animated zoomIn">{{ $kampanye->title }}</h1>
         <a href="" class="h5 text-white">Home</a>
         <i class="far fa-circle text-white px-2"></i>
-        <a href="" class="h5 text-white">Blog Detail</a>
+        <a href="" class="h5 text-white">{{ $kampanye->title }}</a>
       </div>
     </div>
   </div>

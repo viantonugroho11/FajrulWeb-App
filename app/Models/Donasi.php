@@ -30,9 +30,33 @@ class Donasi extends Model
         return $this->belongsTo(KategoriDonasi::class, 'kategori_donasi_id','id');
     }
 
+    public function getPercentageAttribute()
+    {
+        $total = $this->transaksi_donasi->where('status',1)->sum('nominal');
+        $percentage = ($total / $this->target_donasi) * 100;
+        return $percentage;
+    }
+
+    public function getSumDonasiAttribute()
+    {
+        $total = $this->transaksi_donasi->where('status',1)->sum('nominal');
+        return number_format($total, 0, ',', '.');
+    }
+
+    public function getTargetDonasiAttributeModel()
+    {
+        return number_format($this->target_donasi, 0, ',', '.');
+    }
+
+    public function getTanggalTargetDonasiAttribute()
+    {
+        return date('d F Y', strtotime($this->target_tanggal_donasi));
+    }
+
+
     public function transaksi_donasi()
     {
-        return $this->hasMany(TransaksiDonasi::class, 'id','donasi_id');
+        return $this->hasMany(TransaksiDonasi::class,'donasi_id');
     }
 
     public function kabar_berita_donasi()
@@ -65,10 +89,10 @@ class Donasi extends Model
     //     return number_format($this->target_target_donasi, 0, ',', '.');
     // }
 
-    public function getSumDonasiAttribute()
-    {
-        return number_format($this->transaksi_donasi->sum('nominal'), 0, ',', '.');
-    }
+    // public function getSumDonasiAttribute()
+    // {
+    //     return number_format($this->transaksi_donasi->sum('nominal'), 0, ',', '.');
+    // }
 
     public function getShortDescriptionAttribute()
     {

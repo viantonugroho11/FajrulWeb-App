@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Kategori\KategoriDonasiControllers;
 use App\Models\Acara;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\Environment\Console;
 use Spatie\Sitemap\Sitemap;
@@ -127,6 +128,19 @@ Route::prefix('donasi')->name('donasi.')->group(function () {
     Route::get('/',[App\Http\Controllers\Donasi\Home\HomeController::class, 'index'])->name('index');
     Route::get('/kampanye',[App\Http\Controllers\Donasi\Kampanye\KampanyeController::class, 'index'])->name('kampanye.index');
     Route::get('/kampanye/{slug}',[App\Http\Controllers\Donasi\Kampanye\KampanyeController::class, 'show'])->name('kampanye.show');
+    Route::get('/kampanye/{slug}/donasi',[App\Http\Controllers\Donasi\Kampanye\KampanyeController::class, 'donasi'])->name('kampanye.donasi');
+    //kabar berita
+
+    Route::post('/transaksi/{id}',[App\Http\Controllers\Donasi\Transaksi\TransaksiController::class, 'store'])->name('transaksi.store');
+});
+
+Route::get('/kirim-notif-test',function(){
+    $response = Http::post('https://evening-plateau-59486.herokuapp.com/api/v1/notification/artikel', [
+        'Title' => 'ujicoba kirim via laravel',
+        'Body' => 'Ujicoba kirim notif via laravel 8 Program Fajrul Islam',
+        'Type'=>'email'
+    ]);
+    print_r($response->json());
 });
 
 // Route::get('/linkstorage', function () {
