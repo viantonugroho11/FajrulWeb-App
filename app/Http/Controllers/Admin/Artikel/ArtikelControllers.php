@@ -27,12 +27,15 @@ class ArtikelControllers extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            if(Auth::user()->is_admin == 3 || Auth::user()->is_admin == 4){
+            if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4){
                 $kategori = Artikel::select('*')->where('penulis','=',Auth::user()->id);
+            }else if(Auth::user()->role_id == 5){
+                $kategori = Artikel::select('*')->orwhereNull('publish')->orwhere('publish','=',Auth::user()->id);
             }else{
                 $kategori = Artikel::select('*');
             }
-            if(Auth::user()->is_admin == 3 || Auth::user()->is_admin == 4)
+
+            if(Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
             {
                 return DataTables::of($kategori)
                 ->addIndexColumn()
@@ -121,15 +124,6 @@ class ArtikelControllers extends Controller
                 'gambar'=>$image
             ]);
         }
-        // if($request->file('foto')!=null){
-            //simpan icon storage
-        //     $image = $request->file('foto');
-        //     $image->storeAs('storage/artikel/', $image->hashName());
-            //simpan icon database
-        //     $artikel->update([
-        //         'gambar'=>$image->hashName()
-        //     ]);
-        // }
         if ($artikel) {
             return redirect()->route('artikel.index')->withSuccess('Data berhasil ditambahkan');
         }else{

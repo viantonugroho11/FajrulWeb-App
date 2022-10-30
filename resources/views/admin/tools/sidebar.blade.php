@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('admin.donasi.kampanye.index')}}" class="nav-link @if (request()->is('admin/artikel*')) active @endif">
+            <a href="{{route('admin.donasi.kampanye.index')}}" class="nav-link @if (request()->is('admin/kampanye*')) active @endif">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Kampanye
