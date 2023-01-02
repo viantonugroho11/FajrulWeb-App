@@ -47,7 +47,7 @@ class TransaksiController extends Controller
         Rp. ".number_format($request->nominal,0,',','.').". Kode verifikasi anda adalah ".$huruf.$kode_verif.".
         Silahkan masukkan kode verifikasi tersebut pada halaman konfirmasi donasi. Terima kasih.";
 
-        $response = Http::post('https://evening-plateau-59486.herokuapp.com/api/v1/notification/artikel', [
+        $response = Http::post(env('URL_NOTIF_ENGINE_TRANSAKSI'), [
             'Title' => env('APP_NAME').' - Transaksi Donasi',
             'Body' => $kalimat,
             'Type' => 'email'
